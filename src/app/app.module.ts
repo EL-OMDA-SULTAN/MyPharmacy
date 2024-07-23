@@ -14,6 +14,9 @@ import { CustomerCartComponent } from './customer-cart/customer-cart.component';
 import { CustomerWishlistComponent } from './customer-wishlist/customer-wishlist.component';
 import { CustomerCheckoutComponent } from './customer-checkout/customer-checkout.component';
 import { CustomerOrderHistoryComponent } from './customer-order-history/customer-order-history.component';
+import { HeaderComponent } from './header/header.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { CustomerOrderHistoryComponent } from './customer-order-history/customer
     CustomerCartComponent,
     CustomerWishlistComponent,
     CustomerCheckoutComponent,
-    CustomerOrderHistoryComponent
+    CustomerOrderHistoryComponent,
+    HeaderComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

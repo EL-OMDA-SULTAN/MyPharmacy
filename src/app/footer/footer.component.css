@@ -1,0 +1,33 @@
+footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  footer a {
+    color: #000;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  footer .fa {
+    color: #007bff;
+  }
+  
+  footer .fa:hover {
+    color: #0056b3;
+  }
+
+  @media (max-width: 767px) {
+    footer .col-md-6 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    footer .col-md-6:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  
