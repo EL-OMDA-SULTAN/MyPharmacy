@@ -1,0 +1,75 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Contact Us</h2>
+  <div class="row">
+    <!-- Contact Form Section -->
+    <div class="col-lg-6 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Get In Touch</h4>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" formControlName="name" class="form-control"
+                placeholder="Enter your full name">
+              <div class="error" *ngIf="fContact['name'].touched && fContact['name'].invalid">
+                <span *ngIf="fContact['name'].errors && fContact['name'].errors['required']">* Name is required</span>
+                <span *ngIf="fContact['name'].errors && fContact['name'].errors['pattern']">* Name must contain only letters</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" formControlName="email" class="form-control"
+                placeholder="Enter your email">
+              <div class="error" *ngIf="fContact['email'].touched && fContact['email'].invalid">
+                <span *ngIf="fContact['email'].errors && fContact['email'].errors['required']">* Email is required</span>
+                <span *ngIf="fContact['email'].errors && fContact['email'].errors['email']">* Email is invalid</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" formControlName="message" class="form-control" rows="4"
+                placeholder="Enter your message"></textarea>
+              <div class="error" *ngIf="fContact['message'].touched && fContact['message'].invalid">
+                <span *ngIf="fContact['message'].errors && fContact['message'].errors['required']">* Message is required</span>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary m-auto d-block" [disabled]="contactForm.invalid">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Information Section -->
+    <div class="col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Contact Information</h4>
+          <div class="contact-info">
+            <div class="contact-item mb-3">
+              <i class="fas fa-envelope"></i>
+              <div >
+                <h6>Email</h6>
+                <p>contact@pharmacy.com</p>
+              </div>
+            </div>
+            <div class="contact-item mb-3">
+              <i class="fas fa-phone-alt"></i>
+              <div>
+                <h6>Phone</h6>
+                <p>+123-456-7890</p>
+              </div>
+            </div>
+            <div class="contact-item mb-3">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h6>Address</h6>
+                <p>123 Pharmacy Street, City, Country</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

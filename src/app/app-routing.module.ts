@@ -10,6 +10,13 @@ import { CustomerCartComponent } from './customer-cart/customer-cart.component';
 import { CustomerWishlistComponent } from './customer-wishlist/customer-wishlist.component';
 import { CustomerCheckoutComponent } from './customer-checkout/customer-checkout.component';
 import { CustomerOrderHistoryComponent } from './customer-order-history/customer-order-history.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutComponent } from './about/about.component';
+import { SuperAdminDashboardComponent } from './super-admin-dashboard/super-admin-dashboard.component';
+import { ShowPharmaciesComponent } from './show-pharmacies/show-pharmacies.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { SalesComponent } from './sales/sales.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -22,7 +29,15 @@ const routes: Routes = [
   {path:'customer-cart',component:CustomerCartComponent},
   {path:'customer-wishlist',component:CustomerWishlistComponent},
   {path:'customer-checkout',component:CustomerCheckoutComponent},
-  {path:'customer-order-history',component:CustomerOrderHistoryComponent}
+  {path:'customer-order-history',component:CustomerOrderHistoryComponent},
+  {path:'contact-us',component:ContactUsComponent},
+  {path:'about',component:AboutComponent},
+  {path:'super-admin-dashboard',component:SuperAdminDashboardComponent},
+  {path:'show-pharmacies',component:ShowPharmaciesComponent},
+  {path:'categories',component:CategoriesComponent},
+  {path:'sales',component:SalesComponent},
+  {path:'add-category',component:AddCategoryComponent},
+
 ];
 
 @NgModule({

@@ -1,0 +1,79 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/super-admin-dashboard">
+              <span data-feather="home"></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/show-pharmacies">
+              <span data-feather="file"></span>
+              All Pharmacies
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/sales">
+              <span data-feather="shopping-cart"></span>
+              All Sales
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/categories">
+              <span data-feather="bar-chart-2"></span>
+              Categories
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2 text-light">Dashboard</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-3 mb-4" ><!--*ngIf="dashboardData"-->
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Pharmacies</h5>
+              <!-- <p class="card-text">{{ dashboardData.pharmacies }}</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4" >
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Customers</h5>
+              <!-- <p class="card-text">{{ dashboardData.customers }}</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4" >
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Products</h5>
+              <!-- <p class="card-text">{{ dashboardData.products }}</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4" >
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Sales</h5>
+              <!-- <p class="card-text">{{ dashboardData.sales }}</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <router-outlet></router-outlet> -->
+    </main>
+  </div>
+</div>

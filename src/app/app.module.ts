@@ -17,6 +17,13 @@ import { CustomerOrderHistoryComponent } from './customer-order-history/customer
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutComponent } from './about/about.component';
+import { SuperAdminDashboardComponent } from './super-admin-dashboard/super-admin-dashboard.component';
+import { ShowPharmaciesComponent } from './show-pharmacies/show-pharmacies.component';
+import { SalesComponent } from './sales/sales.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +40,20 @@ import { FooterComponent } from './footer/footer.component';
     CustomerOrderHistoryComponent,
     HeaderComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ContactUsComponent,
+    AboutComponent,
+    SuperAdminDashboardComponent,
+    ShowPharmaciesComponent,
+    SalesComponent,
+    CategoriesComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
     // NgxTypedJsModule,
     // HttpClientModule
   ],

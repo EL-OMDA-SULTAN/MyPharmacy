@@ -1,0 +1,59 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/super-admin-dashboard">
+              <span data-feather="home"></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/show-pharmacies">
+              <span data-feather="file"></span>
+              All Pharmacies
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/sales">
+              <span data-feather="shopping-cart"></span>
+              All Sales
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/categories">
+              <span data-feather="bar-chart-2"></span>
+              Categories
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2 text-light">{{ isUpdate ? 'Update Category' : 'Add New Category' }}</h1>
+      </div>
+
+      <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="col-5">
+        <h4 class="mb-4 text-center">{{ isUpdate ? 'Update Category' : 'Add Category' }}</h4>
+        <div class="mb-3">
+          <label for="categoryName" class="form-label">Category Name</label>
+          <input type="text" id="categoryName" formControlName="name" class="form-control"
+            placeholder="Enter category name">
+          <div class="error text-danger" *ngIf="fCategory['name'].touched && fCategory['name'].invalid">
+            <span *ngIf="fCategory['name'].errors && fCategory['name'].errors['required']">* Name is required</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="categoryForm.invalid">
+          {{ isUpdate ? 'Update' : 'Add' }}
+        </button>
+      </form>
+    </main>
+  </div>
+</div>
+

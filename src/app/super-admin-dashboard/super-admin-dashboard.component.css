@@ -1,0 +1,56 @@
+/* Custom styles for the dashboard */
+
+.container-fluid {
+  margin-top: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.card {
+  border: none;
+}
+
+.card-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sidebar {
+  background-color: #f8f9fa;
+  height: 100vh;
+  padding-top: 20px;
+}
+
+.sidebar .nav-link {
+  color: #333;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.sidebar .nav-link.active {
+  background-color: #007bff;
+
+  color: #fff;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #007bff;
+  color: #fff;
+}
