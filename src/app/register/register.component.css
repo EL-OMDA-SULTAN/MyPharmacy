@@ -1,0 +1,57 @@
+.register-container {
+  margin: 10px auto;
+  padding: 20px;
+  background: #afaeae;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  border: 1px solid #ccc;
+}
+
+.form-switch {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+
+.form-switch .btn {
+  width: 150px;
+}
+
+.form-switch .btn.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+.error {
+  color: rgb(190, 6, 6);
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

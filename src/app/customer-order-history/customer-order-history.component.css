@@ -1,0 +1,66 @@
+.container {
+  margin-top: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  margin-bottom: 50px !important;
+}
+
+.card {
+  border: none;
+  background-color: #dedfdf;
+  padding: 10px;
+}
+
+.card-title {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.order-items {
+  border-top: 1px solid #282929;
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.order-item {
+  border-bottom: 1px solid #272829;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.img-fluid {
+  max-height: 100px;
+  object-fit: cover;
+}
+
+.text-muted {
+  margin-bottom: 0;
+}
+
+.text-primary {
+  font-weight: bold;
+}

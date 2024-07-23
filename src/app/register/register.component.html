@@ -1,0 +1,121 @@
+<div class="container my-5 ">
+  <div class="form-switch mb-4 text-center">
+    <button class="btn btn-outline-primary me-2" (click)="switchUserType('customer')"
+      [ngClass]="{ 'active': userType === 'customer' }">Customer</button>
+    <button class="btn btn-outline-primary" (click)="switchUserType('pharmacy')"
+      [ngClass]="{ 'active': userType === 'pharmacy' }">Pharmacy</button>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-5 register-container">
+      <form *ngIf="userType === 'customer'" [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+        <h2 class="mb-4 text-center">Sign Up</h2>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" formControlName="name" class="form-control">
+          <div class="error" *ngIf="fCustomer['name'].touched && fCustomer['name'].invalid">
+            <span *ngIf="fCustomer['name'].errors && fCustomer['name'].errors['required']">* Name is required</span>
+            <span *ngIf="fCustomer['name'].errors && fCustomer['name'].errors['pattern']">* Name must contain only letters</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" formControlName="email" class="form-control">
+          <div class="error" *ngIf="fCustomer['email'].touched && fCustomer['email'].invalid">
+            <span *ngIf="fCustomer['email'].errors && fCustomer['email'].errors['required']">* Email is required</span>
+            <span *ngIf="fCustomer['email'].errors && fCustomer['email'].errors['email']">* Email is invalid</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" formControlName="password" class="form-control">
+          <div class="error" *ngIf="fCustomer['password'].touched && fCustomer['password'].invalid" >
+            <span *ngIf="fCustomer['password'].errors && fCustomer['password'].errors['required']">* Password is required</span>
+            <span *ngIf="fCustomer['password'].errors && fCustomer['password'].errors['minlength']">* Password must be at least 6 characters</span>
+
+          </div>
+        </div>
+
+        <!-- <div class="mb-3">
+          <label for="repeatPassword" class="form-label">Repeat Password</label>
+          <input type="password" id="repeatPassword" formControlName="repeatPassword" class="form-control">
+          <div  class="error text-danger" *ngIf="fCustomer['repeatPassword'].touched && fCustomer['repeatPassword'].invalid">
+            <span *ngIf="fCustomer['repeatPassword'].errors && fCustomer['repeatPassword'].errors['required']">* Repeat Password is required</span>
+          </div>
+          <div *ngIf="submittedCustomer && fCustomer.errors?.passwordMismatch" class="invalid-feedback">
+            <span>* Passwords do not match</span>
+          </div>
+        </div> -->
+
+        <button type="submit" class="btn btn-primary w-100" [disabled]="customerForm.invalid">Register</button>
+      </form>
+
+      <form *ngIf="userType === 'pharmacy'" [formGroup]="pharmacyForm" (ngSubmit)="onSubmit()">
+        <h2 class="mb-4 text-center">Sign Up</h2>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" formControlName="name" class="form-control">
+          <div  class="error" *ngIf="fPharmacy['name'].touched && fPharmacy['name'].invalid">
+            <span *ngIf="fPharmacy['name'].errors && fPharmacy['name'].errors['required']">* Name is required</span>
+            <span *ngIf="fPharmacy['name'].errors && fPharmacy['name'].errors['pattern']">* Name must contain only letters</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" formControlName="email" class="form-control">
+          <div  class="error" *ngIf="fPharmacy['email'].touched && fPharmacy['email'].invalid">
+            <span *ngIf="fPharmacy['email'].errors && fPharmacy['email'].errors['required']">* Email is required</span>
+            <span *ngIf="fPharmacy['email'].errors && fPharmacy['email'].errors['email']">* Email is invalid</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" id="address" formControlName="address" class="form-control">
+          <div  class="error" *ngIf="fPharmacy['address'].touched && fPharmacy['address'].invalid">
+            <span *ngIf="fPharmacy['address'].errors && fPharmacy['address'].errors['required']">* Address is required</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control">
+          <div  class="error" *ngIf="fPharmacy['phoneNumber'].touched && fPharmacy['phoneNumber'].invalid">
+            <span *ngIf="fPharmacy['phoneNumber'].errors && fPharmacy['phoneNumber'].errors['required']">* Phone Number is required</span>
+            <span *ngIf="fPharmacy['phoneNumber'].errors && fPharmacy['phoneNumber'].errors['pattern']">* Phone Number is invalid</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" formControlName="password" class="form-control">
+          <div  class="error" *ngIf="fPharmacy['password'].touched && fPharmacy['password'].invalid">
+            <span *ngIf="fPharmacy['password'].errors && fPharmacy['password'].errors['required']">* Password is required</span>
+            <span *ngIf="fPharmacy['password'].errors && fPharmacy['password'].errors['minlength']">* Password must be at least 6 characters</span>
+          </div>
+        </div>
+
+        <!-- <div class="mb-3">
+          <label for="repeatPassword" class="form-label">Repeat Password</label>
+          <input type="password" id="repeatPassword" formControlName="repeatPassword" class="form-control">
+          <div  class="error text-danger" *ngIf="fPharmacy['repeatPassword'].touched && fPharmacy['repeatPassword'].invalid">
+            <span *ngIf="fPharmacy['repeatPassword'].errors && fPharmacy['repeatPassword'].errors['required']">* Repeat Password is required</span>
+          </div>
+          <div *ngIf="submittedPharmacy && fPharmacy.errors?.passwordMismatch" class="invalid-feedback">
+            <span>* Passwords do not match</span>
+          </div>
+        </div> -->
+
+        <button type="submit" class="btn btn-primary w-100" [disabled]="pharmacyForm.invalid">Register</button>
+      </form>
+
+      <div class="links mt-3 text-center">
+        <p class="fs-6 fw-bold">Already have an account? <a routerLink="/login" class="login-link text-decoration-none">Login</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,35 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5 profile-card shadow-sm rounded">
+      <h2 class="mb-4 text-center mb-2">Update Profile</h2>
+      <form [formGroup]="updateProfileForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3 form-group">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" formControlName="name" class="form-control">
+          <div class="error" *ngIf="fUpdateProfile['name'].touched && fUpdateProfile['name'].invalid">
+            <span *ngIf="fUpdateProfile['name'].errors && fUpdateProfile['name'].errors['required']">* Name is required</span>
+            <span *ngIf="fUpdateProfile['name'].errors && fUpdateProfile['name'].errors['pattern']">* Name must contain only letters</span>
+          </div>
+        </div>
+        <div class="mb-3 form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" formControlName="email" class="form-control">
+          <div class="error" *ngIf="fUpdateProfile['email'].touched && fUpdateProfile['email'].invalid">
+            <span *ngIf="fUpdateProfile['email'].errors && fUpdateProfile['email'].errors['required']">* Email is required</span>
+            <span *ngIf="fUpdateProfile['email'].errors && fUpdateProfile['email'].errors['email']">* Email is invalid</span>
+          </div>
+        </div>
+        <div class="mb-3 form-group">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" formControlName="password" class="form-control">
+          <div class="error" *ngIf="fUpdateProfile['password'].touched && fUpdateProfile['password'].invalid">
+            <span *ngIf="fUpdateProfile['password'].errors && fUpdateProfile['password'].errors['required']">* Password is required</span>
+            <span *ngIf="fUpdateProfile['password'].errors && fUpdateProfile['password'].errors['minlength']">* Password must be at least 6 characters</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="updateProfileForm.invalid">Update</button>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+      <div class="position-sticky">
+        <h4 class="sidebar-heading">Profile</h4>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/customer-profile">Profile Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/update-customer-profile">Update Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/customer-cart">My Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/customer-wishlist">Wishlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/customer-order-history">Order History</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-4">
+      <div class="profile-card shadow-sm rounded">
+        <div class="profile-header">
+          <div class="profile-picture">
+            <!-- <img [src]="customer.profilePictureUrl" alt="Profile Picture" class="img-fluid rounded-circle"> -->
+            <img src="../../assets/profile.jpg" alt="Profile Picture" class="img-fluid rounded-circle">
+          </div>
+          <div class="profile-info text-center">
+            <h2>{{ customer.name }}</h2>
+            <p class="text-muted">{{ customer.email }}</p>
+            <p class="text-muted">{{ customer.phone }}</p>
+          </div>
+        </div>
+        <div class="profile-body">
+          <h4>Address</h4>
+          <p>{{ customer.address }}</p>
+          <!-- <button class="btn btn-primary" (click)="goToUpdateProfile()">Update Profile</button> -->
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+

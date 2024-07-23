@@ -1,0 +1,105 @@
+/*/* Sidebar styling */
+.sidebar {
+  background-color: #f8f9fa;
+  padding: 15px;
+  height: 100vh; /* Full height */
+  border-right: 1px solid #dee2e6; /* Border to the right of the sidebar */
+}
+
+.sidebar-heading {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  border-bottom: 2px solid #007bff; /* Bottom border for heading */
+  padding-bottom: 10px;
+  color: #333;
+}
+
+.nav {
+  border-top: 1px solid #dee2e6; /* Top border for the nav section */
+}
+
+.nav-item {
+  border-bottom: 1px solid #dee2e6; /* Bottom border for each item */
+}
+
+.nav-link {
+  color: #333;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: #007bff;
+  background-color: #e9ecef; /* Light background for the active link */
+}
+
+.nav-link:hover {
+  color: #0056b3;
+  background-color: #e9ecef; /* Light background on hover */
+}
+
+/* Main content styling */
+.profile-card {
+  margin-top: 50px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-picture {
+  margin-bottom: 15px;
+}
+
+.profile-picture img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.profile-info h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.profile-info p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.profile-body {
+  padding: 20px;
+}
+
+.profile-body h4 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #333;
+}
+
+.profile-body p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}

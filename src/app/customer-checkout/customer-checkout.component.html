@@ -1,0 +1,72 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Checkout</h2>
+  <div class="row">
+    <!-- Billing Details -->
+    <div class="col-lg-8 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Billing Details</h4>
+          <form [formGroup]="checkoutForm">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter your full name">
+              <div class="error" *ngIf="fCheckout['name'].touched && fCheckout['name'].invalid">
+                <span *ngIf="fCheckout['name'].errors && fCheckout['name'].errors['required']">* Name is required</span>
+                <span *ngIf="fCheckout['name'].errors && fCheckout['name'].errors['pattern']">* Name must contain only letters</span>
+            </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" formControlName="email" class="form-control"
+                placeholder="Enter your email">
+              <div class="error" *ngIf="fCheckout['email'].touched && fCheckout['email'].invalid">
+                <span *ngIf="fCheckout['email'].errors && fCheckout['email'].errors['required']">* Email is required</span>
+                <span *ngIf="fCheckout['email'].errors && fCheckout['email'].errors['email']">* Email is invalid</span>
+            </div>
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <input type="text" id="address" formControlName="address" class="form-control"
+                placeholder="Enter your address">
+              <div class="error" *ngIf="fCheckout['address'].touched && fCheckout['address'].invalid">
+                <span *ngIf="fCheckout['address'].errors && fCheckout['address'].errors['required']">* Address is required</span>
+            </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="text" id="phone" formControlName="phone" class="form-control" placeholder="Enter your phone number">
+            </div>
+
+            <!-- <button class="btn btn-primary" [disabled]="checkoutForm.invalid" (click)="placeOrder()">Place Order</button> -->
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <div class="col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Order Summary</h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between align-items-center mb-3"
+              *ngFor="let item of cartItems">
+              <div>
+                <h6>{{ item.name }}</h6>
+                <small class="text-muted">Quantity: {{ item.quantity }}</small>
+              </div>
+              <span class="text-muted">${{ (item.price * item.quantity) | number:'1.2-2' }}</span>
+            </li>
+          </ul>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5>Total:</h5>
+            <h5 class="text-primary">${{ total | number:'1.2-2' }}</h5>
+          </div>
+          <button class="btn btn-primary btn-block" [disabled]="checkoutForm.invalid" (click)="placeOrder()">PlaceOrder</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
