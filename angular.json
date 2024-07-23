@@ -27,10 +27,19 @@
             "styles": [
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
+<<<<<<< HEAD
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
               
+=======
+
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/jquery/dist/jquery.min.js"
+
+>>>>>>> da5c8960edb800d50715a4e6af5a9636b577cd79
             ]
           },
           "configurations": {
@@ -91,6 +100,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -100,6 +110,10 @@
     }
   },
   "cli": {
+<<<<<<< HEAD
     "analytics": "56306c7e-2db3-4b2d-888b-c622e02e186c"
+=======
+    "analytics": "4de949b1-8055-4e16-96e0-1fa130f61180"
+>>>>>>> da5c8960edb800d50715a4e6af5a9636b577cd79
   }
 }
