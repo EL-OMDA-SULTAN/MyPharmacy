@@ -19,11 +19,8 @@
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
     "bootstrap": "^5.3.3",
-<<<<<<< HEAD
-    "ng-recaptcha": "^13.2.1",
-=======
+    "ng-recaptcha": "^12.0.0",
     "jquery": "^3.7.1",
->>>>>>> da5c8960edb800d50715a4e6af5a9636b577cd79
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
