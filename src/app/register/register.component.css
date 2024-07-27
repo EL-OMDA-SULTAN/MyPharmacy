@@ -1,7 +1,8 @@
 .register-container {
   margin: 10px auto;
   padding: 20px;
-  background: #afaeae;
+  color: white;
+  background: #191c24;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-in-out;
@@ -30,7 +31,11 @@ h2 {
 }
 
 .form-control {
-  background-color: rgba(255, 255, 255, 0.8);
+ background-color: #2a3038;
+}
+.form-control:focus{
+  box-shadow: none;
+  border-color:green ;
 }
 
 .invalid-feedback {

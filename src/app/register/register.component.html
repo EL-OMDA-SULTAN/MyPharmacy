@@ -10,7 +10,7 @@
     <div class="col-md-5 register-container">
       <form *ngIf="userType === 'customer'" [formGroup]="customerForm" (ngSubmit)="onSubmit()">
         <h2 class="mb-4 text-center">Sign Up</h2>
-        <div class="mb-3">
+        <div class="mb-4">
           <label for="name" class="form-label">Name</label>
           <input type="text" id="name" formControlName="name" class="form-control">
           <div class="error" *ngIf="fCustomer['name'].touched && fCustomer['name'].invalid">
@@ -19,7 +19,7 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
           <label for="email" class="form-label">Email</label>
           <input type="email" id="email" formControlName="email" class="form-control">
           <div class="error" *ngIf="fCustomer['email'].touched && fCustomer['email'].invalid">
@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
           <label for="password" class="form-label">Password</label>
           <input type="password" id="password" formControlName="password" class="form-control">
           <div class="error" *ngIf="fCustomer['password'].touched && fCustomer['password'].invalid" >
@@ -63,7 +63,7 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
           <label for="email" class="form-label">Email</label>
           <input type="email" id="email" formControlName="email" class="form-control">
           <div  class="error" *ngIf="fPharmacy['email'].touched && fPharmacy['email'].invalid">
@@ -72,7 +72,7 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
           <label for="address" class="form-label">Address</label>
           <input type="text" id="address" formControlName="address" class="form-control">
           <div  class="error" *ngIf="fPharmacy['address'].touched && fPharmacy['address'].invalid">
@@ -80,7 +80,7 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
           <label for="phoneNumber" class="form-label">Phone Number</label>
           <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control">
           <div  class="error" *ngIf="fPharmacy['phoneNumber'].touched && fPharmacy['phoneNumber'].invalid">
@@ -89,7 +89,7 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
           <label for="password" class="form-label">Password</label>
           <input type="password" id="password" formControlName="password" class="form-control">
           <div  class="error" *ngIf="fPharmacy['password'].touched && fPharmacy['password'].invalid">
@@ -113,7 +113,7 @@
       </form>
 
       <div class="links mt-3 text-center">
-        <p class="fs-6 fw-bold">Already have an account? <a routerLink="/login" class="login-link text-decoration-none">Login</a></p>
+        <p class="fs-6 fw-bold">Already have an account ? <a routerLink="/login" class="login-link text-decoration-none">Login</a></p>
       </div>
     </div>
   </div>

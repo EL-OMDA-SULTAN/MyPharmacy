@@ -17,6 +17,8 @@
 }
 .card {
   border: none;
+  background-color: #2a2e3a !important;
+  color: white;
 }
 
 .card-title {
@@ -25,26 +27,29 @@
 }
 
 .sidebar {
-  background-color: #f8f9fa;
+  background-color: #191c24 !important;
   height: 100vh;
   padding-top: 20px;
 }
 
 .sidebar .nav-link {
-  color: #333;
-  padding: 20px 0;
+  color: #53597c !important;
+  padding: 15px 0;
+  border-radius: 20px;
   text-align: center;
   font-size: 18px;
   font-weight: 500;
 }
 
 .sidebar .nav-link.active {
-  background-color: #007bff;
+  background-color: #0e0f14;
+  color: white !important;
+  letter-spacing: 2px;
 
   color: #fff;
 }
 
 .sidebar .nav-link:hover {
-  background-color: #007bff;
+  background-color: #0e0f14;
   color: #fff;
 }

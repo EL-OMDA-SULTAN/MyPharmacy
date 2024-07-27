@@ -1,9 +1,10 @@
 
 .login-container {
-  max-width: 400px;
+  max-width: 450px;
   margin: 100px auto;
   padding: 20px;
-  background: #f9f9f9;
+  color: white;
+  background: #191c24;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-in-out;
@@ -25,6 +26,12 @@ h2 {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
+  background-color: #2a3038;
+}
+
+.form-control:focus{
+  box-shadow: none;
+  border-color:green ;
 }
 
 .is-invalid {
