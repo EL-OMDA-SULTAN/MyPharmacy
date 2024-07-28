@@ -1,9 +1,15 @@
+.navbar{
+  position: sticky;
+  top: -1px;
+  z-index: 1000;
+  /* background-color: rgb(187, 182, 182) !important; */
+}
+
 .navbar-brand img {
     height: 50px;
   }
-  
+
   .navbar-nav .nav-link {
     font-size: 1.1rem;
     padding: 0.5rem 1rem;
   }
-  
