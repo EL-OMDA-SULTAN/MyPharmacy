@@ -5,7 +5,7 @@
   animation: fadeIn 1s ease-in-out;
 }
 
-@keyframes fadeIn {
+@keyframes fadeIn{
   from {
     opacity: 0;
     transform: translateY(-20px);
@@ -16,14 +16,34 @@
   }
 }
 .card {
-  border: none;
-  background-color: #2a2e3a !important;
+  padding: 20px;
+  /* border: none; */
+  background-image: linear-gradient(to right, #0f6464, #0b8286);
   color: white;
+  border-radius: 50px;
+  box-shadow: 0 0 5px rgb(255, 255, 255) !important;
+  animation: fadeIn 1s ease-in-out;
+  border: 1px solid #ccc;
+}
+
+.card-text {
+  color: rgba(198, 185, 2, 0.729);
+  text-shadow:  0 0 5px #62646d;
 }
 
 .card-title {
-  margin-bottom: 20px;
+  color: black !important;
+  font-weight: bold;
+  margin-bottom: 30px;
   text-align: center;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.729) !important;
+}
+
+.card-span{
+  color: rgba(0, 0, 0, 0.716);
+  margin-right: 30px;
+  text-align: left !important;
+  font-size: 18px;
 }
 
 .sidebar {

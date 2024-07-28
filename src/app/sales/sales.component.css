@@ -59,3 +59,16 @@
   background-color: #0e0f14;
   color: #fff;
 }
+
+.table-container {
+  overflow-x: auto;
+}
+
+.fade-in-enter {
+  opacity: 0;
+}
+
+.fade-in-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
