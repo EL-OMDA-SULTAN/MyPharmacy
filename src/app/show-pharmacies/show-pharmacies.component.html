@@ -1,3 +1,4 @@
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <div class="container-fluid mt-4">
   <div class="row">
     <!-- Sidebar -->
@@ -36,20 +37,19 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2 text-light">Pharmacies</h1>
+        <h1 class="h2 text-light" >Pharmacies</h1>
         <!-- <button class="btn btn-primary" (click)="addPharmacy()">Add Pharmacy</button> -->
       </div>
 
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4" ><!--*ngFor="let pharmacy of pharmacies"-->
+      <div class="row mt-5 justify-content-center" >
+        <div class="col-md-5 col-lg-3 mb-4" ><!--*ngFor="let pharmacy of pharmacies"-->
           <div class="card shadow-sm">
             <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text"></p>
-              <p class="card-text"><strong>Contact: 01015555555</strong> </p><hr>
-              <p class="card-text"><strong>Categories: 5</strong> </p><hr>
-              <p class="card-text"><strong>Products: 50</strong> </p><hr>
-              <p class="card-text"><strong>Sales: 200$</strong> </p>
+              <h5 class="card-title" aline="center">Pharmacy Name</h5>
+              <p class="card-text mb-4"><strong><span class="card-span">Contact:</span> 01015555555</strong> </p><hr>
+              <p class="card-text mb-4"><strong><span class="card-span">Categories:</span> 5</strong> </p><hr>
+              <p class="card-text"><strong><span class="card-span">Products:</span> 50</strong> </p>
+              <!-- <p class="card-text"><strong>Sales: 200$</strong> </p> -->
               <!-- <button class="btn btn-secondary" >Edit</button>
               <button class="btn btn-danger">Delete</button> -->
             </div>
@@ -59,3 +59,4 @@
     </main>
   </div>
 </div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
