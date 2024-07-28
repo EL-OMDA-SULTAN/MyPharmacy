@@ -1,0 +1,36 @@
+
+
+
+
+<div class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center main-container">
+    <div class="row w-100">
+      <div class="col-md-4 mb-4">
+        <div class="text-center">
+          <img src="assets/images/Clear.jpg" class="img-fluid mb-3 product-image" alt="Clearance">
+          <h5 class="clearance-title">Clearance</h5>
+          <p class="clearance-description">Start with your nail</p>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let product of products; let i = index">
+            <div class="product-card text-center">
+              <img [src]="product.image" class="img-fluid product-image-full" alt="{{ product.name }}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container-fluid-img vh-100 d-flex flex-column justify-content-center align-items-center main-container">
+    <div class="row w-100">
+      <div class="col-md-4 mb-4" *ngFor="let image of images">
+        <div class="text-center">
+          <img [src]="image.src" class="img-fluid mb-3 product-image-full-img" alt="{{ image.alt }}">
+        </div>
+      </div>
+    </div>
+  </div>
+  

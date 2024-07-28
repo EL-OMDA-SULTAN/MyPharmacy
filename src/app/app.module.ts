@@ -24,6 +24,10 @@ import { ShowPharmaciesComponent } from './show-pharmacies/show-pharmacies.compo
 import { SalesComponent } from './sales/sales.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { SliderComponent } from './slider/slider.component';
+import { CategoryButtonsComponent } from './category-buttons/category-buttons.component';
+import { BestSellersSliderComponent } from './best-sellers-slider/best-sellers-slider.component';
+import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,11 @@ import { AddCategoryComponent } from './add-category/add-category.component';
     ShowPharmaciesComponent,
     SalesComponent,
     CategoriesComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    SliderComponent,
+    CategoryButtonsComponent,
+    BestSellersSliderComponent,
+    FeaturedProductsComponent
   ],
   imports: [
     BrowserModule,
