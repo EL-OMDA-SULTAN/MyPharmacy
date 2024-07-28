@@ -3,14 +3,16 @@
     margin: 0;
     text-align: center;
 }
+.carousel {
+margin-top: 0;
+}
 
 .carousel-inner {
     display: flex;
     flex-direction: row;
     overflow: hidden;
     background-color: #fff;
-    margin-bottom: 0;
-    padding: 0;
+
    
 
   }
