@@ -1,0 +1,21 @@
+<div class="container-fluid vh-75 d-flex flex-column justify-content-center align-items-center bg-white">
+    <h1 class="mb-4">Shop by brands</h1>
+    <div id="brandCarousel" class="carousel slide w-100" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div *ngFor="let chunk of brandChunks; let i = index" class="carousel-item" [class.active]="i === 0">
+          <div class="d-flex justify-content-center">
+            <div *ngFor="let brand of chunk" class="col-12 col-md-4 col-lg-2">
+              <div class="brand-card">
+                <img [src]="brand.image" class="img-fluid brand-image" alt="{{ brand.name }}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="carousel-indicators" aria-label="Brand Carousel">
+      <button *ngFor="let chunk of brandChunks; let i = index" type="button" data-bs-target="#brandCarousel"
+        [attr.data-bs-slide-to]="i" [ngClass]="{'active': i === 0}" [attr.aria-label]="'Slide ' + (i + 1)"></button>
+    </nav>
+  </div>
+  

@@ -34,6 +34,9 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 import { ShowProductsComponent } from './show-products/show-products.component';
 import { ShowSalesComponent } from './show-sales/show-sales.component';
+import { ShopbyBrandsComponent } from './shopby-brands/shopby-brands.component';
+import { AdsComponent } from './ads/ads.component';
+import { AdsProductsComponent } from './ads-products/ads-products.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,10 @@ import { ShowSalesComponent } from './show-sales/show-sales.component';
     AddProductComponent,
     SideNavbarComponent,
     ShowProductsComponent,
-    ShowSalesComponent
+    ShowSalesComponent,
+    ShopbyBrandsComponent,
+    AdsComponent,
+    AdsProductsComponent
   ],
   imports: [
     BrowserModule,

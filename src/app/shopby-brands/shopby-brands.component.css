@@ -1,0 +1,59 @@
+.container-fluid {
+  background-color: white;
+}
+
+h1 {
+  margin-bottom: 10px;
+  margin-top: 100px;
+}
+
+.carousel-inner {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand-card {
+  margin: 5px;
+  transition: transform 0.2s ease;
+}
+
+.brand-card:hover {
+  transform: scale(1.05);
+}
+
+.brand-image {
+  max-height: 700px; /* Increased height */
+  object-fit: contain;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  display: none; /* Hide the arrows */
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carousel-indicators button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  border: none;
+  margin: 0 5px;
+}
+
+.carousel-indicators .active {
+  background-color: #000;
+}

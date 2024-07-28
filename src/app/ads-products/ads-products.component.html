@@ -1,0 +1,35 @@
+<div id="bestSellersCarousel" class="carousel slide" data-bs-ride="carousel">
+   
+    <div class="carousel-inner">
+        
+
+      <div *ngFor="let chunk of productChunks; let i = index" class="carousel-item" [class.active]="i === 0">
+        <div class="d-flex">
+          <div *ngFor="let product of chunk" class="col-12 col-md-4 col-lg-2">
+            <div class="card h-100">
+              <img [src]="product.image" class="card-img-top" alt="{{ product.name }}">
+              <div class="card-body text-center">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.price | currency:'EGP' }}</p>
+                <button class="btn btn-primary">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#bestSellersCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#bestSellersCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  
+  <nav class="carousel-indicators" aria-label="Best Sellers">
+    <button *ngFor="let chunk of productChunks; let i = index" type="button" data-bs-target="#bestSellersCarousel"
+      [attr.data-bs-slide-to]="i" [ngClass]="{'active': i === 0}" [attr.aria-label]="'Slide ' + (i + 1)"></button>
+  </nav>
+  

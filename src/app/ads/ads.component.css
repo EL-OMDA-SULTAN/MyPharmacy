@@ -1,0 +1,28 @@
+.container-fluid {
+    background-color: white;
+  }
+  
+  .image-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .img-fluid {
+    height: 100%;
+    width: 100%;
+    max-width: none;
+    cursor: pointer;
+  }
+  
+  .zoom-out {
+    transform: scale(0.9); /* Adjust the scale value to zoom out */
+    transition: transform 0.3s ease;
+  }
+  
+  .zoom-out:hover {
+    transform: scale(1); /* Zoom back to original size on hover */
+  }
+  
