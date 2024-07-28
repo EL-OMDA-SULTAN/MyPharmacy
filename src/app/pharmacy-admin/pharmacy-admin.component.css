@@ -1,0 +1,84 @@
+/* Custom styles for the dashboard */
+.container-fluid {
+    margin-top: 40px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .card {
+    color: white;
+    background-color: #2a2e3a !important;
+    border-radius: 5px;
+    box-shadow: 0 1px 2.94px 0.06px rgba(4,26,55,0.16);
+    border: none;
+    margin-bottom: 30px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card .card-block {
+    padding: 25px;
+  }
+  
+  .order-card i {
+    font-size: 26px;
+  }
+  
+  .f-left {
+    float: left !important;
+  }
+  
+  .f-right {
+    float: right !important;
+  }
+  
+  .bg-c-blue {
+    background: linear-gradient(45deg,#2c7dd9,#5c9ae1);
+  }
+  
+  .bg-c-green {
+    background: linear-gradient(45deg,#22b497,#41c5aa);
+  }
+  
+  .bg-c-yellow {
+    background: linear-gradient(45deg,#dc9735,#e2ae65);
+  }
+  
+  .bg-c-pink {
+    background: linear-gradient(45deg,#cd3e56,#d46476);
+  }
+  
+  .sidebar {
+    background-color: #191c24 !important;
+    height: 100vh;
+    padding-top: 20px;
+  }
+  
+  .sidebar .nav-link {
+    color: #53597c !important;
+    padding: 15px 0;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .sidebar .nav-link.active {
+    background-color: #0e0f14;
+    color: white !important;
+  }
+  
+  .sidebar .nav-link:hover {
+    background-color: #0e0f14;
+    color: #fff;
+  }
+  

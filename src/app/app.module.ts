@@ -28,6 +28,11 @@ import { SliderComponent } from './slider/slider.component';
 import { CategoryButtonsComponent } from './category-buttons/category-buttons.component';
 import { BestSellersSliderComponent } from './best-sellers-slider/best-sellers-slider.component';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
+import { PharmacyAdminComponent } from './pharmacy-admin/pharmacy-admin.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { SideNavbarComponent } from './side-navbar/side-navbar.component';
+import { ShowProductsComponent } from './show-products/show-products.component';
+import { ShowSalesComponent } from './show-sales/show-sales.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +60,12 @@ import { FeaturedProductsComponent } from './featured-products/featured-products
     SliderComponent,
     CategoryButtonsComponent,
     BestSellersSliderComponent,
-    FeaturedProductsComponent
+    FeaturedProductsComponent,
+    PharmacyAdminComponent,
+    AddProductComponent,
+    SideNavbarComponent,
+    ShowProductsComponent,
+    ShowSalesComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,10 @@ import { ShowPharmaciesComponent } from './show-pharmacies/show-pharmacies.compo
 import { CategoriesComponent } from './categories/categories.component';
 import { SalesComponent } from './sales/sales.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { PharmacyAdminComponent } from './pharmacy-admin/pharmacy-admin.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { ShowProductsComponent } from './show-products/show-products.component';
+import { ShowSalesComponent } from './show-sales/show-sales.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -37,6 +41,10 @@ const routes: Routes = [
   {path:'categories',component:CategoriesComponent},
   {path:'sales',component:SalesComponent},
   {path:'add-category',component:AddCategoryComponent},
+  {path:'pharmacy-admin',component:PharmacyAdminComponent},
+  {path: 'add-product', component: AddProductComponent},
+  { path: 'show-products', component: ShowProductsComponent },
+  { path: 'pharmacy-sales', component: ShowSalesComponent }
 
 ];
 

@@ -1,0 +1,95 @@
+.container-fluid {
+    margin-top: 40px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .card {
+    color: white;
+    background-color: #2a2e3a !important;
+    border-radius: 5px;
+    box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
+    border: none;
+    margin-bottom: 30px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card .card-body {
+    padding: 25px;
+  }
+  
+  .sidebar {
+    background-color: #191c24 !important;
+    height: 100vh;
+    padding-top: 20px;
+  }
+  
+  .sidebar .nav-link {
+    color: #53597c !important;
+    padding: 15px 0;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .sidebar .nav-link.active {
+    background-color: #0e0f14;
+    color: white !important;
+    letter-spacing: 2px;
+  }
+  
+  .sidebar .nav-link:hover {
+    background-color: #0e0f14;
+    color: #fff;
+  }
+  
+  h1.h2 {
+    color: #fff;
+  }
+  
+  canvas {
+    background-color: #1f1f2e;
+    border-radius: 5px;
+    width: 100%;
+    height: 400px; /* Ensure the chart is large enough */
+  }
+  
+  h3 {
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .list-group-item {
+    background-color: #2a2e3a !important;
+    color: #fff;
+    border: 1px solid #444851;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .list-group-item:hover {
+    background-color: #3b3f50 !important;
+  }
+  
+  .btn-primary {
+    background-color: #ff4081;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #e73370;
+  }
+  
