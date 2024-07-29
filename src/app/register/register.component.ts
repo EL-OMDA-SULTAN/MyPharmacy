@@ -1,80 +1,96 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from './../auth.service';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
-  customerForm: FormGroup;
-  pharmacyForm: FormGroup;
+export class RegisterComponent implements OnInit {
+  customerForm!: FormGroup;
+  pharmacyForm!: FormGroup;
+  userType: string = 'customer';
   submittedCustomer = false;
   submittedPharmacy = false;
-  userType: 'customer' | 'pharmacy' = 'customer';
 
-  constructor(private formBuilder: FormBuilder) {
-    this.customerForm = this.formBuilder.group({
-      name: ['', Validators.required,Validators.pattern(/^[a-zA-Z\s]*$/)],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      repeatPassword: ['', [Validators.required]]
-    });
-    // , { validators: this.passwordMatchValidator });
+  constructor(private fb: FormBuilder, private authService: AuthService) {}
 
-    this.pharmacyForm = this.formBuilder.group({
-      name: ['', Validators.required,Validators.pattern(/^[a-zA-Z\s]*$/)],
+  ngOnInit(): void {
+    this.customerForm = this.fb.group({
+      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
       email: ['', [Validators.required, Validators.email]],
-      address: ['', Validators.required],
-      phoneNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      repeatPassword: ['', [Validators.required]]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
-    // , { validators: this.passwordMatchValidator });
+    
+
+    this.pharmacyForm = this.fb.group({
+      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
+      email: ['', [Validators.required, Validators.email]],
+      address: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
-  // Getter for easy access to form fields
-  get fCustomer() { return this.customerForm.controls; }
-  get fPharmacy() { return this.pharmacyForm.controls; }
+  get fCustomer() {
+    return this.customerForm.controls;
+  }
 
-  onSubmit() {
+  get fPharmacy() {
+    return this.pharmacyForm.controls;
+  }
+
+  switchUserType(type: string): void {
+    this.userType = type;
+  }
+
+  onSubmit(): void {
     if (this.userType === 'customer') {
       this.submittedCustomer = true;
-
-      if (this.customerForm.invalid) {
-        return;
+      if (this.customerForm.valid) {
+        const data = {
+          Customer_Name: this.customerForm.value.name, // Map to backend key
+          Customer_Email: this.customerForm.value.email, // Map to backend key
+          Customer_Password: this.customerForm.value.password // Map to backend key
+        };
+        this.authService.registerCustomer(data).subscribe(
+          response => {
+            console.log('Customer registered successfully:', response);
+          },
+          error => {
+            console.log('Registration error:', error);
+            if (error.error.errors) {
+              console.log('Validation errors:', error.error.errors);
+            }
+          }
+        );
       }
-
-      // Handle successful customer registration
-      console.log('Customer Registration SUCCESS!!', this.customerForm.value);
-    } else {
+    }else if (this.userType === 'pharmacy') {
       this.submittedPharmacy = true;
-
-      if (this.pharmacyForm.invalid) {
-        return;
+      if (this.pharmacyForm.valid) {
+        console.log('Pharmacy Form Data:', this.pharmacyForm.value);
+        const pharmacyData = {
+          Pharmacy_Name: this.pharmacyForm.value.name,
+          Address: this.pharmacyForm.value.address,
+          Phone_Number: this.pharmacyForm.value.phoneNumber,
+          User_Email: this.pharmacyForm.value.email,
+          User_Password: this.pharmacyForm.value.password
+        };
+  
+        this.authService.registerPharmacy(pharmacyData).subscribe(
+          response => {
+            console.log('Pharmacy registered successfully:', response);
+          },
+          error => {
+            console.log('Registration error:', error);
+            if (error.error.errors) {
+              console.log('Validation errors:', error.error.errors);
+            }
+          }
+        );
       }
-
-      // Handle successful pharmacy registration
-      console.log('Pharmacy Registration SUCCESS!!', this.pharmacyForm.value);
     }
   }
-
-  // passwordMatchValidator(formGroup: FormGroup) {
-  //   const password = formGroup.get('password')?.value;
-  //   const repeatPassword = formGroup.get('repeatPassword')?.value;
-
-  //   if (password !== repeatPassword) {
-  //     return { passwordMismatch: true };
-  //   }
-  //   return null;
-  // }
-
-  switchUserType(type: 'customer' | 'pharmacy') {
-    this.userType = type;
-    this.submittedCustomer = false;
-    this.submittedPharmacy = false;
-    this.customerForm.reset();
-    this.pharmacyForm.reset();
-  }
 }
-

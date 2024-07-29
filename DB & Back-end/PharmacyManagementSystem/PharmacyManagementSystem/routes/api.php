@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PharmacyController;
 use App\Http\Controllers\Api\CategoryController;
@@ -7,18 +8,20 @@ use App\Http\Controllers\Api\SaleController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\WishlistController;
+
 use Illuminate\Support\Facades\Route;
 
+// Customer routes
+Route::post('/customers', [CustomerController::class, 'register']);
+Route::get('/customers/{id}', [CustomerController::class, 'show']);
+Route::put('/customers/{id}', [CustomerController::class, 'update']);
+Route::delete('/customers/{id}', [CustomerController::class, 'destroy']);
 
-Route::resource('users', UserController::class);
-Route::resource('pharmacies', PharmacyController::class);
-Route::resource('categories', CategoryController::class);
-Route::resource('products', ProductController::class);
-Route::resource('sales', SaleController::class);
-Route::resource('customers', CustomerController::class);
-Route::resource('orders', OrderController::class);
-Route::resource('wishlists', WishlistController::class);
+// Pharmacy routes
+Route::post('/pharmacy', [PharmacyController::class, 'register']);
+Route::post('/login', [UserController::class, 'login']);
 
+// Test route
 Route::get('test', function () {
     return 'Route is working!';
 });

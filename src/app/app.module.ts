@@ -37,6 +37,7 @@ import { ShowSalesComponent } from './show-sales/show-sales.component';
 import { ShopbyBrandsComponent } from './shopby-brands/shopby-brands.component';
 import { AdsComponent } from './ads/ads.component';
 import { AdsProductsComponent } from './ads-products/ads-products.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { AdsProductsComponent } from './ads-products/ads-products.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
     // NgxTypedJsModule,
     // HttpClientModule
   ],

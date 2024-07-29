@@ -3,7 +3,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Users;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -31,10 +34,16 @@ class UserController extends Controller
             'User_Type' => 'required',
             'Pharmacy_ID' => 'nullable|integer',
         ]);
-
+    
+        // Hash the password
+        $request->merge([
+            'User_Password' => Hash::make($request->User_Password),
+        ]);
+    
         $user = Users::create($request->all());
         return response()->json($user, 201);
     }
+    
 
     public function update(Request $request, $id)
     {
@@ -55,6 +64,33 @@ class UserController extends Controller
             return response()->json(['message' => 'User deleted']);
         } else {
             return response()->json(['message' => 'User not found'], 404);
+        }
+    }
+
+    public function login(Request $request)
+    {
+        // Validate request
+        $validator = Validator::make($request->all(), [
+            'User_Email' => 'required|email',
+            'User_Password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        // Check user existence
+        $user = Users::where('User_Email', $request->User_Email)->first();
+
+        // Check password and return response
+        if ($user && Hash::check($request->User_Password, $user->User_Password)) {
+            return response()->json([
+                'message' => 'Login successful',
+                'userType' => $user->User_Type, // Return user type
+                'user' => $user
+            ], 200);
+        } else {
+            return response()->json(['message' => 'Invalid credentials'], 401);
         }
     }
 }

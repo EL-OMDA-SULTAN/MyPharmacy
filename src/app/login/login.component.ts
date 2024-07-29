@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -7,30 +10,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
   loginForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      User_Email: ['', [Validators.required, Validators.email]],
+      User_Password: ['', [Validators.required, Validators.minLength(6)]]
     });
+    
   }
 
-  // Getter for easy access to form fields
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
     this.submitted = true;
 
-    // Stop here if form is invalid
     if (this.loginForm.invalid) {
-      return;
+        return;
     }
 
-    // Handle successful login
-    console.log('SUCCESS!!', this.loginForm.value);
-  }
+    console.log('Request Payload:', this.loginForm.value); // Log the payload
+
+    this.authService.login(this.loginForm.value).subscribe(
+        (response: any) => {
+            console.log('Login SUCCESS!!', response);
+            // Handle success
+        },
+        (error: HttpErrorResponse) => {
+            console.error('Login failed', error);
+            alert('Login failed. Please check your credentials and try again.');
+            if (error.error.errors) {
+                console.log('Validation errors:', error.error.errors);
+            }
+        }
+    );
+}
+
 
 }

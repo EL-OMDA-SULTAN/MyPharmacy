@@ -25,7 +25,7 @@ import { ShowSalesComponent } from './show-sales/show-sales.component';
 const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'',redirectTo:'home',pathMatch:'full'},
-  {path:'login',component:LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"forgot-password",component:ForgotPasswordComponent},
   {path:'customer-profile',component:CustomerProfileComponent},
