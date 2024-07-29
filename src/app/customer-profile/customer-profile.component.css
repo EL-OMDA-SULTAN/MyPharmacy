@@ -1,6 +1,6 @@
 /*/* Sidebar styling */
 .sidebar {
-  background-color: #f8f9fa;
+  background-color: #2a2e3a !important;
   padding: 15px;
   height: 100vh; /* Full height */
   border-right: 1px solid #dee2e6; /* Border to the right of the sidebar */
@@ -12,7 +12,7 @@
   font-weight: 500;
   border-bottom: 2px solid #007bff; /* Bottom border for heading */
   padding-bottom: 10px;
-  color: #333;
+  color: white;
 }
 
 .nav {
@@ -24,7 +24,7 @@
 }
 
 .nav-link {
-  color: #333;
+  color: white;
   padding: 10px;
   border-radius: 4px;
 }
@@ -43,16 +43,19 @@
 /* Main content styling */
 .profile-card {
   margin-top: 50px;
-  background-color: #fff;
+  background: #191c24;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  color: white !important;
 }
 
 .profile-header {
-  background-color: #f8f9fa;
+  background: #191c24;
   padding: 20px;
   text-align: center;
+
+  color: white !important;
 }
 
 .profile-picture {
@@ -68,12 +71,14 @@
 .profile-info h2 {
   margin: 0;
   font-size: 24px;
-  color: #333;
 }
 
 .profile-info p {
   margin: 5px 0;
-  color: #666;
+  color: #fff;
+}
+.text-muted {
+  color: #fff !important;
 }
 
 .profile-body {
@@ -83,12 +88,10 @@
 .profile-body h4 {
   margin-bottom: 15px;
   font-size: 18px;
-  color: #333;
 }
 
 .profile-body p {
   margin-bottom: 20px;
-  color: #666;
 }
 
 .btn-primary {

@@ -1,5 +1,8 @@
 .container-fluid {
   background-color: white;
+      margin-bottom: 40px !important;
+    margin-top: 40px !important;
+
 }
 
 h1 {

@@ -15,6 +15,15 @@
     transform: translateY(0);
   }
 }
+
+.h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+}
+
 .card {
   border: none;
   background-color: #2a2e3a !important;
@@ -71,4 +80,73 @@
 .fade-in-enter-active {
   opacity: 1;
   transition: opacity 0.5s;
+}
+
+.table{
+  text-align: center;
+  border: none !important;
+  /* overflow: hidden; */
+}
+
+tbody, td, tfoot, th, thead, tr {
+  border-style: none !important;
+}
+
+.table tr th{
+  background-color: brown;
+  border-radius: 20px 50%;
+  padding: 20px 0 !important;
+  transition: all 0.3s ease-in-out;
+}
+.table tr th:hover {
+  transform: scale(1.03);
+  background-color: green !important;
+  color: white !important;
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+
+.table tr td {
+  background-color: #2a2e3a !important;
+  border-radius: 20px 50%;
+  padding: 20px 7px !important;
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+.table tr th,
+.table tr td {
+  color: white;
+border: none !important;
+}
+
+.table tr td:hover {
+  transform: scale(1.02);
+  background-color: brown !important;
+  color: black !important;
+  font-size: 18px !important;
+  font-weight: bold;
+}
+.table .btn{
+  margin-right: 5px;
+  padding: 7px 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.pagination{
+  margin-top: 40px !important;
+}
+.pagination .page-item{
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px
+}
+.pagination .page-link{
+  padding: 15px 20px !important;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
 }

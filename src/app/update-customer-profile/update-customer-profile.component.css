@@ -1,12 +1,15 @@
 .profile-card {
   margin-top: 50px;
-  background-color: #dbdada;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background: #191c24;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
   padding: 20px;
   animation: fadeIn 1s ease-in-out;
-  border: 1px solid black;
+  border: 1px solid rgb(161, 159, 159);
+  color: white;
 }
 
 .profile-card.fade-in {
@@ -39,4 +42,17 @@ h2 {
 }
 .error {
   color: rgb(219, 4, 4);
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #2a3038;
+  color: #fff;
+}
+
+.form-control:focus{
+  box-shadow: none;
+  border-color:green ;
 }

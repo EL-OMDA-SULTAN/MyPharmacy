@@ -33,14 +33,14 @@
           </ul>
         </div>
       </nav>
-  
+
       <!-- Main Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2 text-light">Add Product</h1>
         </div>
         <div class="row">
-          <div class="col-md-8 offset-md-2">
+          <div class="col-md-6 offset-md-2">
             <form (ngSubmit)="onSubmit()">
               <div class="form-group mb-3">
                 <label for="name" class="form-label">Product Name</label>
@@ -64,18 +64,17 @@
               </div>
               <button type="submit" class="btn btn-primary">Add Product</button>
             </form>
-  
-            <div class="mt-4">
+
+            <!-- <div class="mt-4">
               <h3>Added Products</h3>
               <ul class="list-group">
                 <li *ngFor="let prod of products" class="list-group-item">
                   {{ prod.name }} - {{ prod.category }} - ${{ prod.price }} - {{ prod.quantity }} units
                 </li>
               </ul>
-            </div>
+            </div> -->
           </div>
         </div>
       </main>
     </div>
   </div>
-  

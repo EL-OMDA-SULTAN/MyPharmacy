@@ -2,9 +2,15 @@
   position: sticky;
   top: -1px;
   z-index: 1000;
+
   /* background-color: rgb(187, 182, 182) !important; */
 }
 
+.navbar a{
+  font-size: 15px !important;
+  padding: 9px !important;
+  font-weight: bold;
+}
 .navbar-brand img {
     height: 50px;
   }

@@ -25,27 +25,30 @@
 }
 
 .sidebar {
-  background-color: #f8f9fa;
+  background-color: #191c24 !important;
   height: 100vh;
   padding-top: 20px;
 }
 
 .sidebar .nav-link {
-  color: #333;
-  padding: 20px 0;
+  color: #53597c !important;
+  padding: 15px 0;
+  border-radius: 20px;
   text-align: center;
   font-size: 18px;
   font-weight: 500;
 }
 
 .sidebar .nav-link.active {
-  background-color: #007bff;
+  background-color: #0e0f14;
+  color: white !important;
+  letter-spacing: 2px;
 
   color: #fff;
 }
 
 .sidebar .nav-link:hover {
-  background-color: #007bff;
+  background-color: #0e0f14;
   color: #fff;
 }
 
@@ -54,10 +57,49 @@
 }
 
 form {
-  margin-top: 20px;
-  background-color: #b9bbbd;
+  max-width: 450px;
+  margin: 100px auto;
   padding: 20px;
-  border-radius: 5px;
+  color: white;
+  background: #191c24;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 50px auto;
+  animation: fadeIn 1s ease-in-out;
+  border: 1px solid #ccc;
+}
+
+.form-group::placeholder{
+  color: #fff !important;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #2a3038;
+  color: #fff;
+}
+
+.form-control:focus{
+  box-shadow: none;
+  border-color:green ;
+}
+
+.is-invalid {
+  border-color: red;
+}
+
+.invalid-feedback {
+  color: red;
+  font-size: 0.9em;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
 }

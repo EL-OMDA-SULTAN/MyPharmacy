@@ -1,14 +1,17 @@
 .container {
   margin-top: 40px;
 }
+
 .cart-container{
   margin-top: 40px;
   padding: 20px;
-  background: #f9f9f9;
+  background-color: #2a3038;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   animation: fadeIn 1s ease-in-out;
   border: 1px solid #ccc;
+  margin-bottom: 50px;
+  color: white;
 }
 
 h2 {
@@ -31,6 +34,14 @@ h2 {
 
 .card {
   margin-top: 40px;
+  background-color: #2a3038;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.text-muted{
+  color: #fff !important;
 }
 
 .card-body h3 {
@@ -53,3 +64,15 @@ h2 {
 .btn-primary:hover {
   background-color: #0056b3;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

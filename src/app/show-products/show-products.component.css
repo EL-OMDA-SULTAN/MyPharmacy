@@ -2,7 +2,7 @@
     margin-top: 40px;
     animation: fadeIn 1s ease-in-out;
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -13,68 +13,13 @@
       transform: translateY(0);
     }
   }
-  
-  .card {
-    color: white;
-    background-color: #2a2e3a !important;
-    border-radius: 5px;
-    box-shadow: 0 1px 2.94px 0.06px rgba(4, 26, 55, 0.16);
-    border: none;
-    margin-bottom: 30px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .card .card-block {
-    padding: 25px;
-  }
-  
-  .order-card i {
-    font-size: 26px;
-  }
-  
-  .f-left {
-    float: left !important;
-  }
-  
-  .f-right {
-    float: right !important;
-  }
-  
-  .bg-c-blue {
-    background: linear-gradient(45deg, #2c7dd9, #5c9ae1);
-  }
-  
-  .bg-c-green {
-    background: linear-gradient(45deg, #22b497, #41c5aa);
-  }
-  
-  .bg-c-yellow {
-    background: linear-gradient(45deg, #dc9735, #e2ae65);
-  }
-  
-  .bg-c-pink {
-    background: linear-gradient(45deg, #cd3e56, #d46476);
-  }
-  
-  .card-title {
-    margin-bottom: 20px;
-    text-align: center;
-    color: #fff;
-  }
-  
-  .card-text {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    color: #fff;
-  }
-  
+
   .sidebar {
     background-color: #191c24 !important;
     height: 100vh;
     padding-top: 20px;
   }
-  
+
   .sidebar .nav-link {
     color: #53597c !important;
     padding: 15px 0;
@@ -83,38 +28,23 @@
     font-size: 18px;
     font-weight: 500;
   }
-  
+
   .sidebar .nav-link.active {
     background-color: #0e0f14;
     color: white !important;
     letter-spacing: 2px;
   }
-  
+
   .sidebar .nav-link:hover {
     background-color: #0e0f14;
     color: #fff;
   }
-  
-  .form-label {
-    font-weight: bold;
-    color: #fff;
-  }
-  
+
   .container {
     color: #fff;
     margin-top: 40px;
   }
-  
-  .btn-primary {
-    background-color: #ff4081;
-    border: none;
-    border-radius: 4px;
-  }
-  
-  .btn-primary:hover {
-    background-color: #e73370;
-  }
-  
+
   .list-group-item {
     background-color: #2a2e3a !important;
     color: #fff;
@@ -122,14 +52,40 @@
     border-radius: 5px;
     margin-bottom: 10px;
   }
-  
+
   .list-group-item:hover {
     background-color: #3b3f50 !important;
   }
-  
+
   h3 {
     color: #fff;
     text-align: center;
     margin-top: 20px;
   }
-  
+
+  .product-card{
+    background-color: #2a2e3a !important;
+    color: #fff;
+    border: 1px solid #444851;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .product-card h5{
+    text-align: center;
+  }
+
+  .product-details{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+  .product-details div{
+    width: 30%;
+    border-right: 1px solid #444851;
+  }
+
+  .product-actions{
+    border-right: none !important;
+  }

@@ -32,35 +32,50 @@
           </ul>
         </div>
       </nav>
-  
+
       <!-- Main Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2 text-light">Show Products</h1>
         </div>
         <div class="row">
-          <div class="col-md-8 offset-md-2">
+          <div class="col-md-10 m-auto">
             <div class="mt-4">
-              <h3>Added Products</h3>
-              <ul class="list-group">
-                <li *ngFor="let prod of products" class="list-group-item">
-                  <div class="d-flex justify-content-between">
-                    <div>
-                      <h5 class="mb-1">{{ prod.name }}</h5>
-                      <p class="mb-1">Category: {{ prod.category }}</p>
-                      <p class="mb-1">Description: {{ prod.description }}</p>
-                    </div>
-                    <div>
-                      <p class="mb-1">Price: ${{ prod.price }}</p>
-                      <p class="mb-1">Quantity: {{ prod.quantity }} units</p>
-                    </div>
+              <!-- <h3>Added Products</h3> -->
+              <div class="product-card">
+                <h5>product name</h5>
+                <hr>
+                <div class="product-details">
+                  <div class="product-image">
+                    <p>product image</p><hr>
+                    <img src="" alt="">
                   </div>
-                </li>
-              </ul>
+                  <div class="product-info">
+                    <p>product details</p><hr>
+                    <p>details</p>
+                  </div>
+                  <div class="product-price">
+                    <p>product price</p><hr>
+                    <p>300$</p>
+                  </div>
+                  <div class="product-quantity">
+                    <p>product quantity</p><hr>
+                    <p>50</p>
+                  </div>
+                  <div class="product-category">
+                    <p>product category</p><hr>
+                    <p>category 1</p>
+                  </div>
+                  <div class="product-actions">
+                    <p>product actions</p><hr>
+                    <button class="btn btn-primary me-2">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </main>
     </div>
   </div>
-  

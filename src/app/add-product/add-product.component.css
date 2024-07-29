@@ -1,16 +1,11 @@
-.form-label {
-    font-weight: bold;
-    color: #fff;
-  }
-  
-  .container {
+.container {
     color: #fff;
     margin-top: 40px;
   }.container-fluid {
     margin-top: 40px;
     animation: fadeIn 1s ease-in-out;
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -21,7 +16,7 @@
       transform: translateY(0);
     }
   }
-  
+
   .card {
     color: white;
     background-color: #2a2e3a !important;
@@ -31,56 +26,56 @@
     margin-bottom: 30px;
     transition: all 0.3s ease-in-out;
   }
-  
+
   .card .card-block {
     padding: 25px;
   }
-  
+
   .order-card i {
     font-size: 26px;
   }
-  
+
   .f-left {
     float: left !important;
   }
-  
+
   .f-right {
     float: right !important;
   }
-  
+
   .bg-c-blue {
     background: linear-gradient(45deg, #2c7dd9, #5c9ae1);
   }
-  
+
   .bg-c-green {
     background: linear-gradient(45deg, #22b497, #41c5aa);
   }
-  
+
   .bg-c-yellow {
     background: linear-gradient(45deg, #dc9735, #e2ae65);
   }
-  
+
   .bg-c-pink {
     background: linear-gradient(45deg, #cd3e56, #d46476);
   }
-  
+
   .card-title {
     margin-bottom: 20px;
     text-align: center;
   }
-  
+
   .card-text {
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
   }
-  
+
   .sidebar {
     background-color: #191c24 !important;
     height: 100vh;
     padding-top: 20px;
   }
-  
+
   .sidebar .nav-link {
     color: #53597c !important;
     padding: 15px 0;
@@ -89,19 +84,56 @@
     font-size: 18px;
     font-weight: 500;
   }
-  
+
   .sidebar .nav-link.active {
     background-color: #0e0f14;
     color: white !important;
     letter-spacing: 2px;
   }
-  
+
   .sidebar .nav-link:hover {
     background-color: #0e0f14;
     color: #fff;
   }
-  
-  .form-label {
+
+  /* .form-label {
     font-weight: bold;
-  }
-  
+  } */
+
+  form {
+  /* max-width: 450px; */
+  margin:20px  auto;
+  padding: 20px;
+  color: white;
+  background: #191c24;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  border: 1px solid #ccc;
+}
+
+.form-group::placeholder{
+  color: #fff !important;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #2a3038;
+  color: #fff;
+}
+
+.form-control:focus{
+  box-shadow: none;
+  border-color:green ;
+}
+.btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}

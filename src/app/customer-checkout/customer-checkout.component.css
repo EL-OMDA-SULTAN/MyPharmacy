@@ -3,17 +3,18 @@
 }
 
 .card {
-  border: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 1s ease-in-out !important;
+  border: none;
   border: 1px solid #ccc;
-  background-color: #dfe0e1;
+  background-color: #2a3038;
+  color: #fff !important;
 }
 
 h2{
-  color:  #007bff;
+  color:  white;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
   margin-bottom: 100px !important;
@@ -23,7 +24,7 @@ h2{
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+  color: #fff;
   text-align: center;
   font-family: 'Nunito', sans-serif;
 }
@@ -31,6 +32,25 @@ h2{
 .form-group {
   margin-bottom: 15px;
 }
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #2a3038;
+  color: #fff;
+}
+
+.form-control:focus{
+  box-shadow: none;
+  border-color:green ;
+}
+
+.form-control::placeholder{
+  color: #ffffff64 !important;
+}
+
+
 
 .btn-primary {
   background-color: #007bff;
@@ -51,4 +71,15 @@ h2{
 
 .error{
   color: rgb(199, 4, 4);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
