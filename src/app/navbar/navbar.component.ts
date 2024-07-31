@@ -7,14 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  userType: string | null = null;
 
   constructor(private router: Router) {}
 
-  logout() {
-    // Clear session storage
-    sessionStorage.clear();
+  ngOnInit(): void {
+    this.userType = sessionStorage.getItem('userType');
+  }
 
-    // Redirect to login page
+  logout() {
+    sessionStorage.clear();
     this.router.navigate(['/login']);
   }
 }

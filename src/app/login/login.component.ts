@@ -42,6 +42,10 @@ export class LoginComponent {
         sessionStorage.setItem('user', JSON.stringify(response.user));
         sessionStorage.setItem('userType', response.userType);
 
+        if (response.userData) {
+          sessionStorage.setItem('userData', JSON.stringify(response.userData));
+        }
+
         // Redirect to home page
         this.router.navigate(['/']);
       },
