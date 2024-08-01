@@ -1,6 +1,14 @@
-<app-header></app-header>
-<app-navbar></app-navbar>
+<ng-container  *ngIf="showNavbarAndFooter">
+    <app-header ></app-header>
+</ng-container>
+
+
+<ng-container *ngIf="showNavbarAndFooter">
+  <app-navbar></app-navbar>
+</ng-container>
+
 <router-outlet></router-outlet>
 
-<app-footer></app-footer>
-<!-- <h1>Pharmacy Management System</h1> -->
+<ng-container *ngIf="showNavbarAndFooter">
+  <app-footer></app-footer>
+</ng-container>

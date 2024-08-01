@@ -24,32 +24,41 @@ import { ShowSalesComponent } from './show-sales/show-sales.component';
 import { BestSalesComponent } from './best-sales/best-sales.component';
 import { BestSallerPharmacyComponent } from './best-saller-pharmacy/best-saller-pharmacy.component';
 
+import { AuthGuard } from './auth.guard';
+import { AdminGuard } from './admin.guard';
+import { PharmacyAdminGuard } from './pharmacy-admin.guard';
+import { CustomerGuard } from './customer.guard';
+
 const routes: Routes = [
-  {path:'home',component:HomeComponent},
-  {path:'',redirectTo:'home',pathMatch:'full'},
-  {path: 'login', component: LoginComponent},
-  {path:"register",component:RegisterComponent},
-  {path:"forgot-password",component:ForgotPasswordComponent},
-  {path:'customer-profile',component:CustomerProfileComponent},
-  {path:'update-customer-profile',component:UpdateCustomerProfileComponent},
-  {path:'customer-cart',component:CustomerCartComponent},
-  {path:'customer-wishlist',component:CustomerWishlistComponent},
-  {path:'customer-checkout',component:CustomerCheckoutComponent},
-  {path:'customer-order-history',component:CustomerOrderHistoryComponent},
-  {path:'contact-us',component:ContactUsComponent},
-  {path:'about',component:AboutComponent},
-  {path:'super-admin-dashboard',component:SuperAdminDashboardComponent},
-  {path:'show-pharmacies',component:ShowPharmaciesComponent},
-  {path:'categories',component:CategoriesComponent},
-  {path:'sales',component:SalesComponent},
-  {path:'add-category',component:AddCategoryComponent},
-  {path:'pharmacy-admin',component:PharmacyAdminComponent},
-  {path: 'add-product', component: AddProductComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent ,canActivate:[AuthGuard] },
+  { path: 'register', component: RegisterComponent ,canActivate:[AuthGuard] },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'customer-profile', component: CustomerProfileComponent, canActivate: [CustomerGuard] },
+  { path: 'update-customer-profile', component: UpdateCustomerProfileComponent, canActivate: [CustomerGuard] },
+  { path: 'customer-cart', component: CustomerCartComponent, canActivate: [CustomerGuard] },
+  { path: 'customer-wishlist', component: CustomerWishlistComponent, canActivate: [CustomerGuard] },
+  { path: 'customer-checkout', component: CustomerCheckoutComponent, canActivate: [CustomerGuard] },
+  { path: 'customer-order-history', component: CustomerOrderHistoryComponent, canActivate: [CustomerGuard] },
+  { path: 'contact-us', component: ContactUsComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'super-admin-dashboard', component: SuperAdminDashboardComponent, canActivate: [AdminGuard] },
+  { path: 'show-pharmacies', component: ShowPharmaciesComponent },
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'sales', component: SalesComponent },
+  { path: 'add-category', component: AddCategoryComponent, canActivate: [PharmacyAdminGuard] },
+  { path: 'pharmacy-admin', component: PharmacyAdminComponent, canActivate: [PharmacyAdminGuard] },
+  { path: 'add-product', component: AddProductComponent, canActivate: [PharmacyAdminGuard] },
   { path: 'show-products', component: ShowProductsComponent },
+<<<<<<< HEAD
   { path: 'pharmacy-sales', component: ShowSalesComponent },
   {path:'best-sales',component:BestSalesComponent},
   {path:'best-saller-pharmacy',component:BestSallerPharmacyComponent}
 
+=======
+  { path: 'pharmacy-sales', component: ShowSalesComponent }
+>>>>>>> 50fb2253fa2ba4f1d53c705d944f1813fb617ba6
 ];
 
 @NgModule({
