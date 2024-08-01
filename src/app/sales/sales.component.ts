@@ -15,7 +15,7 @@ import { trigger, style, transition, animate } from '@angular/animations';
   ]
 })
 export class SalesComponent {
-   sales = [
+  sales = [
     { id: 1, pharmacyName: 'Pharmacy 1', customerName: 'John Doe', customer: 'Customer 1', salesDate: '2023-07-01' },
     { id: 2, pharmacyName: 'Pharmacy 2', customerName: 'Jane Smith', customer: 'Customer 2', salesDate: '2023-07-02' },
     { id: 3, pharmacyName: 'Pharmacy 3', customerName: 'Bob Johnson', customer: 'Customer 3', salesDate: '2023-07-03' },
@@ -58,14 +58,4 @@ export class SalesComponent {
     this.updatePagination();
   }
 
-  editSale(id: number) {
-    alert(`Edit sale with ID: ${id}`);
-  }
-
-  deleteSale(id: number) {
-    alert(`Delete sale with ID: ${id}`);
-    this.sales = this.sales.filter(sale => sale.id !== id);
-    this.updateTable();
-    this.updatePagination();
-  }
 }

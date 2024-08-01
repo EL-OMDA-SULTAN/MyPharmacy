@@ -17,7 +17,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/sales">
+            <a class="nav-link"  routerLink="/sales">
               <span data-feather="shopping-cart"></span>
               All Sales
             </a>
@@ -29,7 +29,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/best-sales">
+            <a class="nav-link active" aria-current="page" routerLink="/best-sales">
               <span data-feather="bar-chart-2"></span>
               Best Sales
             </a>
@@ -50,19 +50,17 @@
             <thead class="thead-dark">
               <tr>
                 <th>ID</th>
-                <th>Pharmacy Name</th>
-                <th>Customer Name</th>
-                <th>Customer</th>
-                <th>Sales Date</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>quantity</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let sale of visibleSales" [@fadeIn]>
-                <td>{{ sale.id }}</td>
-                <td>{{ sale.pharmacyName }}</td>
-                <td>{{ sale.customerName }}</td>
-                <td>{{ sale.customer }}</td>
-                <td>{{ sale.salesDate }}</td>
+              <tr *ngFor="let best_sale of visibleSales" [@fadeIn]>
+                <td>{{ best_sale.id }}</td>
+                <td>{{ best_sale.name }}</td>
+                <td>{{ best_sale.price }}</td>
+                <td>{{ best_sale.quantity }}</td>
               </tr>
             </tbody>
           </table>
@@ -73,7 +71,7 @@
               <a class="page-link" (click)="goToPage(currentPage - 1)">Previous</a>
             </li>
             <li class="page-item" *ngFor="let page of visiblePages" [class.active]="page === currentPage">
-              <a class="page-link"  (click)="goToPage(page)">{{ page }}</a>
+              <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
             </li>
             <li class="page-item" [class.disabled]="currentPage === totalPages">
               <a class="page-link" (click)="goToPage(currentPage + 1)">Next</a>
@@ -84,3 +82,4 @@
     </main>
   </div>
 </div>
+

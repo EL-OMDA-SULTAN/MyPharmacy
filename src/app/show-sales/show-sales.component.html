@@ -23,7 +23,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="/pharmacy-sales" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+              <a class="nav-link active" routerLink="/pharmacy-sales" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <span data-feather="dollar-sign"></span>
                 Show Sales
               </a>
@@ -35,16 +35,46 @@
       <!-- Main Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2 text-light">Show Sales</h1>
+          <h1 class="h2">Sales</h1>
         </div>
-        <div class="row">
-          <div class="col-md-8 offset-md-2">
-            <div class="mt-4">
-              <canvas id="salesChart">
-                
-              </canvas>
-            </div>
+        <div class="table-responsive mt-5">
+          <div class="table-container">
+            <table class="table table-hover table-bordered">
+              <thead class="thead-dark">
+                <tr>
+                  <th>ID</th>
+                  <th>customerName</th>
+                  <th>Product Name</th>
+                  <th>Price</th>
+                  <th>quantity</th>
+                  <th>Sales Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let sale of show_sales" [@fadeIn]>
+                  <td>{{ sale.id }}</td>
+                  <td>{{ sale.customerName }}</td>
+                  <td>{{ sale.name }}</td>
+                  <td>{{ sale.price }}</td>
+                  <td>{{ sale.quantity }}</td>
+                  <td>{{ sale.salesDate }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+          <!-- <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+              <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" (click)="goToPage(currentPage - 1)">Previous</a>
+              </li>
+              <li class="page-item" *ngFor="let page of visiblePages" [class.active]="page === currentPage">
+                <a class="page-link" (click)="goToPage(page)">{{ page }}</a>
+              </li>
+              <li class="page-item" [class.disabled]="currentPage === totalPages">
+                <a class="page-link" (click)="goToPage(currentPage + 1)">Next</a>
+              </li>
+            </ul>
+          </nav> -->
         </div>
       </main>
     </div>

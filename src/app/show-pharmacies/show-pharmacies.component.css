@@ -18,7 +18,7 @@
 .card {
   padding: 20px;
   /* border: none; */
-  background-image: linear-gradient(to right, #0f6464, #0b8286);
+  background-color: #2a2e3a !important;
   color: white;
   border-radius: 50px;
   box-shadow: 0 0 5px rgb(255, 255, 255) !important;
@@ -27,16 +27,16 @@
 }
 
 .card-text {
-  color: rgba(198, 185, 2, 0.729);
-  text-shadow:  0 0 5px #62646d;
+  color: rgb(12, 221, 4);
+  /* text-shadow:  0 0 5px #62646d; */
 }
 
 .card-title {
-  color: black !important;
+  color: #a62929 !important;
   font-weight: bold;
   margin-bottom: 30px;
   text-align: center;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.729) !important;
+  text-shadow: 0 0 5px black !important;
 }
 
 .card-span{

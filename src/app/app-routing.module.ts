@@ -21,6 +21,8 @@ import { PharmacyAdminComponent } from './pharmacy-admin/pharmacy-admin.componen
 import { AddProductComponent } from './add-product/add-product.component';
 import { ShowProductsComponent } from './show-products/show-products.component';
 import { ShowSalesComponent } from './show-sales/show-sales.component';
+import { BestSalesComponent } from './best-sales/best-sales.component';
+import { BestSallerPharmacyComponent } from './best-saller-pharmacy/best-saller-pharmacy.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -44,7 +46,9 @@ const routes: Routes = [
   {path:'pharmacy-admin',component:PharmacyAdminComponent},
   {path: 'add-product', component: AddProductComponent},
   { path: 'show-products', component: ShowProductsComponent },
-  { path: 'pharmacy-sales', component: ShowSalesComponent }
+  { path: 'pharmacy-sales', component: ShowSalesComponent },
+  {path:'best-sales',component:BestSalesComponent},
+  {path:'best-saller-pharmacy',component:BestSallerPharmacyComponent}
 
 ];
 

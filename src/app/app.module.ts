@@ -38,6 +38,8 @@ import { ShopbyBrandsComponent } from './shopby-brands/shopby-brands.component';
 import { AdsComponent } from './ads/ads.component';
 import { AdsProductsComponent } from './ads-products/ads-products.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BestSalesComponent } from './best-sales/best-sales.component';
+import { BestSallerPharmacyComponent } from './best-saller-pharmacy/best-saller-pharmacy.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { HttpClientModule } from '@angular/common/http';
     ShowSalesComponent,
     ShopbyBrandsComponent,
     AdsComponent,
-    AdsProductsComponent
+    AdsProductsComponent,
+    BestSalesComponent,
+    BestSallerPharmacyComponent
   ],
   imports: [
     BrowserModule,

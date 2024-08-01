@@ -2,7 +2,7 @@
     margin-top: 40px;
     animation: fadeIn 1s ease-in-out;
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -13,7 +13,7 @@
       transform: translateY(0);
     }
   }
-  
+
   .card {
     color: white;
     background-color: #2a2e3a !important;
@@ -23,17 +23,17 @@
     margin-bottom: 30px;
     transition: all 0.3s ease-in-out;
   }
-  
+
   .card .card-body {
     padding: 25px;
   }
-  
+
   .sidebar {
     background-color: #191c24 !important;
     height: 100vh;
     padding-top: 20px;
   }
-  
+
   .sidebar .nav-link {
     color: #53597c !important;
     padding: 15px 0;
@@ -42,35 +42,35 @@
     font-size: 18px;
     font-weight: 500;
   }
-  
+
   .sidebar .nav-link.active {
     background-color: #0e0f14;
     color: white !important;
     letter-spacing: 2px;
   }
-  
+
   .sidebar .nav-link:hover {
     background-color: #0e0f14;
     color: #fff;
   }
-  
+
   h1.h2 {
     color: #fff;
   }
-  
+
   canvas {
     background-color: #1f1f2e;
     border-radius: 5px;
     width: 100%;
     height: 400px; /* Ensure the chart is large enough */
   }
-  
+
   h3 {
     color: #fff;
     text-align: center;
     margin-top: 20px;
   }
-  
+
   .list-group-item {
     background-color: #2a2e3a !important;
     color: #fff;
@@ -78,18 +78,77 @@
     border-radius: 5px;
     margin-bottom: 10px;
   }
-  
+
   .list-group-item:hover {
     background-color: #3b3f50 !important;
   }
-  
-  .btn-primary {
-    background-color: #ff4081;
-    border: none;
-    border-radius: 4px;
-  }
-  
-  .btn-primary:hover {
-    background-color: #e73370;
-  }
-  
+
+
+  .table{
+  text-align: center;
+  border: none !important;
+  /* overflow: hidden; */
+}
+
+tbody, td, tfoot, th, thead, tr {
+  border-style: none !important;
+}
+
+.table tr th{
+  background-color: brown;
+  border-radius: 20px 50%;
+  padding: 20px 0 !important;
+  transition: all 0.3s ease-in-out;
+}
+.table tr th:hover {
+  transform: scale(1.03);
+  background-color: green !important;
+  color: white !important;
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+
+.table tr td {
+  background-color: #2a2e3a !important;
+  border-radius: 20px 50%;
+  padding: 20px 7px !important;
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+.table tr th,
+.table tr td {
+  color: white;
+border: none !important;
+}
+
+.table tr td:hover {
+  transform: scale(1.02);
+  background-color: brown !important;
+  color: black !important;
+  font-size: 18px !important;
+  font-weight: bold;
+}
+.table .btn{
+  margin-right: 5px;
+  padding: 7px 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.pagination{
+  margin-top: 40px !important;
+}
+.pagination .page-item{
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px
+}
+.pagination .page-link{
+  padding: 15px 20px !important;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
