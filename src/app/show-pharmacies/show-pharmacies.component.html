@@ -48,16 +48,13 @@
       </div>
 
       <div class="row mt-5 justify-content-center" >
-        <div class="col-md-5 col-lg-3 mb-4" ><!--*ngFor="let pharmacy of pharmacies"-->
+        <div class="col-md-5 col-lg-3 mb-4 col-10" *ngFor="let pharmacy of pharmacies"><!--*ngFor="let pharmacy of pharmacies"-->
           <div class="card shadow-sm">
             <div class="card-body">
-              <h5 class="card-title" aline="center">Pharmacy Name</h5>
-              <p class="card-text mb-4"><strong><span class="card-span">Contact:</span> 01015555555</strong> </p><hr>
-              <p class="card-text mb-4"><strong><span class="card-span">Categories:</span> 5</strong> </p><hr>
-              <p class="card-text"><strong><span class="card-span">Products:</span> 50</strong> </p>
-              <!-- <p class="card-text"><strong>Sales: 200$</strong> </p> -->
-              <!-- <button class="btn btn-secondary" >Edit</button>
-              <button class="btn btn-danger">Delete</button> -->
+              <h5 class="card-title" aline="center">{{ pharmacy.Pharmacy_Name }}</h5>
+              <p class="card-text mb-4"><strong><span class="card-span">Address : </span> {{ pharmacy.Address }}</strong> </p><hr>
+              <p class="card-text mb-4"><strong><span class="card-span">Phone : </span> {{ pharmacy.Phone_Number }}</strong> </p><hr>
+              <!-- <p class="card-text"><strong><span class="card-span">Products:</span> 50</strong> </p> -->
             </div>
           </div>
         </div>

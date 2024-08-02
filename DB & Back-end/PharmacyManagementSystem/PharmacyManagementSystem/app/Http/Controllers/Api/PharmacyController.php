@@ -13,6 +13,11 @@ use Illuminate\Support\Str;
 
 class PharmacyController extends Controller
 {
+    public function show(){
+
+        return Pharmacies::all();
+
+    }
     public function register(Request $request)
     {
         // Validate the incoming request

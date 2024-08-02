@@ -28,6 +28,9 @@ export class AuthService {
   getPharmacy(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/pharmacy`);
   }
+  getCustomer(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/customers`);
+  }
 
   isLoggedIn(): boolean {
     // Check if the user data exists in session storage

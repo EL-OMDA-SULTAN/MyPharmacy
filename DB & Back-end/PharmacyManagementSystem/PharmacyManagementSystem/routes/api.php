@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 // Customer routes
 Route::post('/customers', [CustomerController::class, 'register']);
 Route::get('/customers/{id}', [CustomerController::class, 'show']);
+Route::get('/customers', [CustomerController::class, 'index']);
 Route::put('/customers/{id}', [CustomerController::class, 'update']);
 Route::delete('/customers/{id}', [CustomerController::class, 'destroy']);
 
 // Pharmacy routes
 Route::post('/pharmacy', [PharmacyController::class, 'register']);
+Route::get('/pharmacy', [PharmacyController::class, 'show']);
 Route::post('/login', [UserController::class, 'login']);
 
 // Test route

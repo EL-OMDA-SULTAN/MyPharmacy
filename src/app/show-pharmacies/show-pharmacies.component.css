@@ -18,7 +18,7 @@
 .card {
   padding: 20px;
   /* border: none; */
-  background-color: #2a2e3a !important;
+  background-color: #212529 !important;
   color: white;
   border-radius: 50px;
   box-shadow: 0 0 5px rgb(255, 255, 255) !important;
@@ -27,12 +27,12 @@
 }
 
 .card-text {
-  color: rgb(12, 221, 4);
+  color: rgb(9, 172, 3);
   /* text-shadow:  0 0 5px #62646d; */
 }
 
 .card-title {
-  color: #a62929 !important;
+  color: white !important;
   font-weight: bold;
   margin-bottom: 30px;
   text-align: center;
@@ -41,7 +41,7 @@
 
 .card-span{
   color: rgba(0, 0, 0, 0.716);
-  margin-right: 30px;
+  /* margin-right: 30px; */
   text-align: left !important;
   font-size: 18px;
 }

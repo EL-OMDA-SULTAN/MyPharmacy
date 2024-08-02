@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,15 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./show-pharmacies.component.css']
 })
 export class ShowPharmaciesComponent {
-  //  pharmacies: any[];
+   pharmacies:any =[];
 
-  // constructor(private pharmacyService: PharmacyService) { }
+  constructor(private authService:AuthService ) { }
 
-  // ngOnInit(): void {
-  //   this.pharmacyService.getPharmacies().subscribe(data => {
-  //     this.pharmacies = data;
-  //   });
-  // }
+  ngOnInit(): void {
+    this.authService.getPharmacy().subscribe(data => {
+      this.pharmacies = data;
+      console.log(this.pharmacies);
+    });
+  }
 
   addPharmacy(): void {
     // Logic to add a pharmacy

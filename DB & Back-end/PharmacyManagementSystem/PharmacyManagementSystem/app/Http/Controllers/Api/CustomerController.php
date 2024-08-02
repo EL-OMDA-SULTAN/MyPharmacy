@@ -10,7 +10,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
-{ public function register(Request $request)
+{
+    public function index(){
+        $customers = Customers::all();
+        return response()->json($customers);
+    }
+
+    public function register(Request $request)
     {
         // Validate request
         $validator = Validator::make($request->all(), [
