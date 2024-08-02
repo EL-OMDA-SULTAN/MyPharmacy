@@ -1,5 +1,5 @@
 import { trigger, style, transition, animate } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -16,27 +16,31 @@ import { AuthService } from '../auth.service';
     ])
   ]
 })
-export class CategoriesComponent {
-  constructor(   private authService: AuthService,private router: Router) {}
-  categories : any = [];
+export class CategoriesComponent implements OnInit {
+  categories: any[] = [];
   rowsPerPage = 5;
   currentPage = 1;
   totalPages = 0;
-  visibleCategories : any = [];
-  visiblePages : any= [];
+  visibleCategories: any[] = [];
+  visiblePages: number[] = [];
+
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
+    this.loadCategories();
+  }
+
+  loadCategories() {
     this.authService.getCategories().subscribe(
       (data: any) => {
         this.categories = data;
-        // console.log(this.categories);
         this.updateTable();
         this.updatePagination();
       },
       (error) => {
-        console.error(error);
+        console.error('Error loading categories:', error);
       }
-    )
+    );
   }
 
   updateTable() {
@@ -45,6 +49,7 @@ export class CategoriesComponent {
     this.visibleCategories = this.categories.slice(startIndex, endIndex);
   }
 
+ 
   updatePagination() {
     this.totalPages = Math.ceil(this.categories.length / this.rowsPerPage);
     this.visiblePages = [];
@@ -61,20 +66,20 @@ export class CategoriesComponent {
     this.updatePagination();
   }
 
-  editCategory(id: number) {
-    alert(`Edit category with ID: ${id}`);
+  editCategory(categoryId: number) {
+    this.router.navigate(['/edit-category', categoryId]);
   }
 
-  deleteCategory(id: number) {
-  console.log(id); // Debug: Check the id value
-  this.authService.deleteCategory(id).subscribe(
-    response => {
-      console.log(response); // Handle the response if needed
-      // Optionally, update the UI or notify the user
-    },
-    error => {
-      console.error(error); // Handle any errors
-    }
-  );
-}
+  deleteCategory(categoryId: number) {
+    this.authService.deleteCategory(categoryId).subscribe(
+      response => {
+        console.log(response);
+        // Optionally, update the UI or notify the user
+        this.ngOnInit(); // Refresh the category list after deletion
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
 }

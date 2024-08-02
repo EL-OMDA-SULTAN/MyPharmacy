@@ -69,8 +69,10 @@ export class AuthService {
     return this.http.put<any>(`${this.apiUrl}/category/${id}`, category);
   }
 
-  deleteCategory(id: number): Observable<any> {
-  console.log(id); // Debug: Check the id value
-  return this.http.delete<any>(`${this.apiUrl}/category/${id}`);
-}
+ deleteCategory(categoryId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/category/${categoryId}`);
+  }
+  getCategoryById(categoryId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/category/${categoryId}`);
+  }
 }

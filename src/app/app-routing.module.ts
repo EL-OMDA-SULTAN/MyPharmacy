@@ -53,6 +53,7 @@ const routes: Routes = [
   { path: 'show-products', component: ShowProductsComponent },
 // <<<<<<< HEAD
   { path: 'pharmacy-sales', component: ShowSalesComponent },
+  { path: 'edit-category/:id', component: AddCategoryComponent },
   {path:'best-sales',component:BestSalesComponent},
   {path:'best-saller-pharmacy',component:BestSallerPharmacyComponent},
 
