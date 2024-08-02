@@ -28,7 +28,7 @@ CREATE TABLE `categories` (
   `number_of_products` int(11) NOT NULL,
   `Is_deleted` int(11) NOT NULL,
   PRIMARY KEY (`Category_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (14,'category one',0,0),(15,'category two',0,0),(16,'category three',0,0),(17,'c 5',0,0);
+INSERT INTO `categories` VALUES (14,'category one',0,0),(15,'category two',0,0),(16,'category three',0,0);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-02 14:24:18
+-- Dump completed on 2024-08-02 19:44:02

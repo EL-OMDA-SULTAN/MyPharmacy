@@ -13,7 +13,8 @@ class Products extends Model
     public $incrementing = true; // Primary key is auto-incrementing
 
     protected $fillable = [
-        'Pharmacy_ID', 'Product_Name', 'Description', 'Price', 'Expiry_Date'
+        'Pharmacy_ID', 'Product_Name', 'Description', 'Price', 'Expiry_Date',
+        'Category_Id', 'Quantity','image', 'Is_deleted',
     ];
 
     // Define relationships if needed

@@ -56,7 +56,7 @@ export class AuthService {
     return this.http.get<any>(`${this.apiUrl}/category`,id);
   }
 
-  addCategory(data:FormData): Observable<any> {
+  addCategory(data:any): Observable<any> {
     // console.log(data)
     console.log(data)
     return this.http.post(`${this.apiUrl}/category`, data);
@@ -68,11 +68,12 @@ export class AuthService {
   updateCategory(id: number, category: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/category/${id}`, category);
   }
+deleteCategory(categoryId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/category/${categoryId}`);
+  }
+  getCategoryById(categoryId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/category/${categoryId}`);
 
-<<<<<<< HEAD
-  deleteCategory(id: number): Observable<any> {
-  console.log(id); // Debug: Check the id value
-  return this.http.delete<any>(`${this.apiUrl}/category/${id}`);
   }
 
   // product
@@ -84,9 +85,12 @@ export class AuthService {
     return this.http.get<any>(`${this.apiUrl}/product`,id);
   }
 
-  addProduct(data: any): Observable<any> {
-    // console.log(data)
-    return this.http.post(`${this.apiUrl}/product`, data);
+  addProduct(data: any){
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.set('Content-Type', 'application/json; charset=utf-8');
+    console.log(data)
+    return this.http.post<any>(`${this.apiUrl}/product`, data,{headers: headers});
   }
 
   updateProduct(id: number, product: any): Observable<any> {
@@ -96,12 +100,6 @@ export class AuthService {
   deleteProduct(id: number): Observable<any> {
   console.log(id); // Debug: Check the id value
   return this.http.delete<any>(`${this.apiUrl}/product/${id}`);
-=======
- deleteCategory(categoryId: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/category/${categoryId}`);
   }
-  getCategoryById(categoryId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/category/${categoryId}`);
->>>>>>> 9b7c1c56029025ba6125d668823b2c4bc26d3c35
-  }
+ 
 }

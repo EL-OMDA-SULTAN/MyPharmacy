@@ -14,6 +14,7 @@ export class AddProductComponent {
   selectedFile: File | null = null;
   successMessage: string | null = null;
   categories:any=[];
+  pharmacyId:any;
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
@@ -33,10 +34,14 @@ export class AddProductComponent {
   } );
   }
     ngOnInit() {
+    const userString = sessionStorage.getItem('user');
+    if (userString) {
+      const user = JSON.parse(userString);
+      this.pharmacyId = user.User_ID;
+    }
     this.authService.getCategories().subscribe(
       (data: any) => {
         this.categories = data;
-        // console.log(this.categories);
       },
       (error) => {
         console.error(error);
@@ -45,15 +50,21 @@ export class AddProductComponent {
   }
 
   onSubmit() {
+    // console.log(this.productForm.value);
     const formData = new FormData();
-    formData.append('Product_Name', this.productForm?.get('Product_Name')?.value);
-    formData.append('Description', this.productForm?.get('Description')?.value);
-    formData.append('Price', this.productForm?.get('Price')?.value);
-    formData.append('Expiry_Date', this.productForm?.get('Expiry_Date')?.value);
-    formData.append('Quantity', this.productForm?.get('Quantity')?.value);
-    formData.append('Category_Id', this.productForm?.get('Category_Id')?.value);
+    formData.append('Pharmacy_ID', this.pharmacyId);
+    formData.append('Product_Name', this.productForm.value.Product_Name);
+    formData.append('Description', this.productForm.value.Description);
+    formData.append('Price', this.productForm.value.Price);
+    formData.append('Expiry_Date', this.productForm.value.Expiry_Date);
+    formData.append('Quantity', this.productForm.value.Quantity);
+    formData.append('Category_Id', this.productForm.value.Category_Id);
     formData.append('image', this.selectedFile!);
-    formData.append('Is_deleted', this.productForm?.get('Is_deleted')?.value);
+    formData.append('Is_deleted', this.productForm.value.Is_deleted);
+    // console.log('FormData content:', formData);
+    //   for (const pair of formData.entries()) {
+    //   console.log(`${pair[0]}: ${pair[1]}`);
+    // }
     this.authService.addProduct(formData).subscribe(
       (response) => {
         console.log(response);

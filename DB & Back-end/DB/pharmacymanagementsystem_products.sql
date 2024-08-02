@@ -26,9 +26,12 @@ CREATE TABLE `products` (
   `Product_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Pharmacy_ID` int(11) NOT NULL,
   `Product_Name` varchar(100) NOT NULL,
-  `Description` text,
+  `Description` text NOT NULL,
   `Price` decimal(10,2) NOT NULL,
   `Expiry_Date` date DEFAULT NULL,
+  `Category_Id` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `image` varchar(100) NOT NULL,
   `Is_deleted` int(11) NOT NULL,
   PRIMARY KEY (`Product_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -52,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-02 14:24:16
+-- Dump completed on 2024-08-02 19:43:59

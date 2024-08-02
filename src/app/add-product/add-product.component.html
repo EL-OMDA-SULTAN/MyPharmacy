@@ -51,6 +51,7 @@
                     required</span>
                     <span *ngIf="fProduct['Product_Name'].errors && fProduct['Product_Name'].errors['pattern']">* Name only characters</span>
                 </div>
+              </div>
               <div class="form-group mb-3 mt-3">
                 <label for="category" class="form-label">Category</label>
                 <select name="category" id="category" formControlName="Category_Id">
@@ -62,6 +63,7 @@
                     required</span>
                 </div>
               </div>
+
               <div class="form-group mb-3">
                 <label for="price" class="form-label">Price</label>
                 <input type="number" id="price" formControlName="Price" class="form-control" placeholder="Enter price">
@@ -70,7 +72,7 @@
                     required</span>
                 </div>
               </div>
-              </div>
+
               <div class="form-group mb-3">
                 <label for="quantity" class="form-label">Quantity</label>
                 <input type="number" id="quantity" formControlName="Quantity" class="form-control"
