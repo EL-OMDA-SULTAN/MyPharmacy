@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -57,8 +56,9 @@ export class AuthService {
     return this.http.get<any>(`${this.apiUrl}/category`,id);
   }
 
-  addCategory(data: any): Observable<any> {
+  addCategory(data:FormData): Observable<any> {
     // console.log(data)
+    console.log(data)
     return this.http.post(`${this.apiUrl}/category`, data);
   }
   handleError(handleError: any): import("rxjs").OperatorFunction<Object, any> {
@@ -72,5 +72,28 @@ export class AuthService {
   deleteCategory(id: number): Observable<any> {
   console.log(id); // Debug: Check the id value
   return this.http.delete<any>(`${this.apiUrl}/category/${id}`);
-}
+  }
+
+  // product
+  getProducts(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/product`);
+  }
+
+  getProduct(id:any): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/product`,id);
+  }
+
+  addProduct(data: any): Observable<any> {
+    // console.log(data)
+    return this.http.post(`${this.apiUrl}/product`, data);
+  }
+
+  updateProduct(id: number, product: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/product/${id}`, product);
+  }
+
+  deleteProduct(id: number): Observable<any> {
+  console.log(id); // Debug: Check the id value
+  return this.http.delete<any>(`${this.apiUrl}/product/${id}`);
+  }
 }

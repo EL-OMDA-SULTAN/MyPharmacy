@@ -120,7 +120,8 @@
   margin-bottom: 15px;
 }
 
-.form-control {
+.form-control,
+select {
   width: 100%;
   padding: 10px;
   margin-top: 5px;

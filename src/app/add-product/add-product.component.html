@@ -41,38 +41,76 @@
         </div>
         <div class="row">
           <div class="col-md-6 offset-md-2">
-            <form (ngSubmit)="onSubmit()">
+            <form (ngSubmit)="onSubmit()"  [formGroup]="productForm">
               <div class="form-group mb-3">
-                <label for="name" class="form-label">Product Name</label>
-                <input type="text" class="form-control" id="name" [(ngModel)]="product.name" name="name" required>
-              </div>
-              <div class="form-group mb-3">
+                <label for="Product_Name" class="form-label">Product Name</label>
+                <input type="text" id="Product_Name" formControlName="Product_Name" class="form-control"
+                  placeholder="Enter category name">
+                <div class="error text-danger" *ngIf="fProduct['Product_Name'].touched && fProduct['Product_Name'].invalid">
+                  <span *ngIf="fProduct['Product_Name'].errors && fProduct['Product_Name'].errors['required']">* Name is
+                    required</span>
+                    <span *ngIf="fProduct['Product_Name'].errors && fProduct['Product_Name'].errors['pattern']">* Name only characters</span>
+                </div>
+              <div class="form-group mb-3 mt-3">
                 <label for="category" class="form-label">Category</label>
-                <input type="text" class="form-control" id="category" [(ngModel)]="product.category" name="category" required>
+                <select name="category" id="category" formControlName="Category_Id">
+                  <option value="" disabled selected>Select Category</option>
+                  <option *ngFor="let category of categories" [value]="category.Category_ID">{{category.Category_Name}}</option>
+                </select>
+                <div class="error text-danger" *ngIf="fProduct['Category_Id'].touched && fProduct['Category_Id'].invalid">
+                  <span *ngIf="fProduct['Category_Id'].errors && fProduct['Category_Id'].errors['required']">* Category is
+                    required</span>
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input type="number" class="form-control" id="price" [(ngModel)]="product.price" name="price" required>
+                <input type="number" id="price" formControlName="Price" class="form-control" placeholder="Enter price">
+                <div class="error text-danger" *ngIf="fProduct['Price'].touched && fProduct['Price'].invalid">
+                  <span *ngIf="fProduct['Price'].errors && fProduct['Price'].errors['required']">* Price is
+                    required</span>
+                </div>
+              </div>
               </div>
               <div class="form-group mb-3">
                 <label for="quantity" class="form-label">Quantity</label>
-                <input type="number" class="form-control" id="quantity" [(ngModel)]="product.quantity" name="quantity" required>
+                <input type="number" id="quantity" formControlName="Quantity" class="form-control"
+                  placeholder="Enter quantity">
+                <div class="error text-danger" *ngIf="fProduct['Quantity'].touched && fProduct['Quantity'].invalid">
+                  <span *ngIf="fProduct['Quantity'].errors && fProduct['Quantity'].errors['required']">* Quantity is
+                    required</span>
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" [(ngModel)]="product.description" name="description"></textarea>
+                <input type="text" id="description" formControlName="Description" class="form-control"
+                  placeholder="Enter description">
+                <div class="error text-danger" *ngIf="fProduct['Description'].touched && fProduct['Description'].invalid">
+                  <span *ngIf="fProduct['Description'].errors && fProduct['Description'].errors['required']">* Description
+                    is required</span>
+                </div>
               </div>
-              <button type="submit" class="btn btn-primary">Add Product</button>
+              <div class="form-group mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="file" id="image" formControlName="image" class="form-control"
+                  placeholder="Enter image">
+                <div class="error text-danger" *ngIf="fProduct['image'].touched && fProduct['image'].invalid">
+                  <span *ngIf="fProduct['image'].errors && fProduct['image'].errors['required']">* Image is
+                    required</span>
+                </div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="date" class="form-label">Expiry Date</label>
+                <input type="date" id="date" formControlName="Expiry_Date" class="form-control"
+                  placeholder="Enter expiry date">
+                <div class="error text-danger" *ngIf="fProduct['Expiry_Date'].touched && fProduct['Expiry_Date'].invalid">
+                  <span *ngIf="fProduct['Expiry_Date'].errors && fProduct['Expiry_Date'].errors['required']">* Expiry
+                    Date is required</span>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Add Product</button>
             </form>
 
-            <!-- <div class="mt-4">
-              <h3>Added Products</h3>
-              <ul class="list-group">
-                <li *ngFor="let prod of products" class="list-group-item">
-                  {{ prod.name }} - {{ prod.category }} - ${{ prod.price }} - {{ prod.quantity }} units
-                </li>
-              </ul>
-            </div> -->
           </div>
         </div>
       </main>
