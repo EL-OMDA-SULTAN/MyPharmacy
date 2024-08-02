@@ -69,6 +69,7 @@ export class AuthService {
     return this.http.put<any>(`${this.apiUrl}/category/${id}`, category);
   }
 
+<<<<<<< HEAD
   deleteCategory(id: number): Observable<any> {
   console.log(id); // Debug: Check the id value
   return this.http.delete<any>(`${this.apiUrl}/category/${id}`);
@@ -95,5 +96,12 @@ export class AuthService {
   deleteProduct(id: number): Observable<any> {
   console.log(id); // Debug: Check the id value
   return this.http.delete<any>(`${this.apiUrl}/product/${id}`);
+=======
+ deleteCategory(categoryId: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/category/${categoryId}`);
+  }
+  getCategoryById(categoryId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/category/${categoryId}`);
+>>>>>>> 9b7c1c56029025ba6125d668823b2c4bc26d3c35
   }
 }

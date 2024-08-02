@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,7 +9,7 @@ class Categories extends Model
     use HasFactory;
 
     protected $table = 'categories';
-    protected $primaryKey = 'Category_Id';
+    protected $primaryKey = 'Category_ID';
 
     protected $fillable = [
         'Category_Name',
@@ -24,30 +23,4 @@ class Categories extends Model
     ];
 
     public $timestamps = false;
-
-    public function product()
-    {
-        return $this->hasMany(Product::class);
-    }
-
-    public function category()
-    {
-        return $this->hasMany(Category::class);
-    }
-
-    public function users()
-    {
-        return $this->hasMany(User::class, 'Category_ID');
-    }
-
-    public function scopeActive($query)
-    {
-        return $query->where('Is_deleted', 0);
-    }
-
-    public function scopeInactive($query)
-    {
-        return $query->where('Is_deleted', 1);
-    }
-
 }

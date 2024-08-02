@@ -17,8 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         // Get all categories
-        $categories = Categories::all();
-        // var_dump($categories);
+        $categories = Categories::where('Is_deleted', 0)->get();
         return response()->json($categories);
     }
 
@@ -30,10 +29,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request->all());
-        echo "hello";
         $validator = Validator::make($request->all(), [
-            'Category_Name' => 'required|string|max:255'
+            'Category_Name' => 'required|string|max:255|unique:categories,Category_Name'
         ]);
 
         if ($validator->fails()) {
@@ -47,7 +44,7 @@ class CategoryController extends Controller
         $category = new Categories();
         $category->Category_Name = $request->Category_Name;
         $category->Is_deleted = 0;
-        $category->number_of_products=0;
+        $category->number_of_products = 0;
         $category->save();
 
         return response()->json(['message' => 'Category created successfully!'], 201);
@@ -79,7 +76,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'Category_Name' => 'required|string|max:255',
+            'Category_Name' => 'required|string|max:255|unique:categories,Category_Name,' . $id . ',Category_ID'
         ]);
 
         if ($validator->fails()) {
@@ -115,37 +112,19 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-{   
-    // \Log::info('Attempting to delete category with id: ' . $id);
-    // var_dump($id);
-    $category = Categories::find($id);
-    // var_dump($category);
-    // var_dump($category->Category_ID);
+    {
+        $category = Categories::find($id);
 
-    if (!$category) {
-        return response()->json(['message' => 'Category not found'], 404);
+        if (!$category) {
+            return response()->json(['message' => 'Category not found'], 404);
+        }
+
+        // Update the Is_deleted column to 1
+        $category->update(['Is_deleted' => 1]);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Category deleted successfully'
+        ], 200);
     }
-
-        // $category->Is_deleted = 1;
-        $category->delete();
-        // $category->update(['Is_deleted' => 1]);
-        // $category->save();
-        // $category->number_of_products='0';
-        // try {
-        // if () {
-        //     \Log::info('Category deleted successfully');
-        // } else {
-        //     \Log::error('Error deleting category');
-        // }
-
-    // } catch (\Exception $e) {
-    //     \Log::error('Error deleting category: ' . $e->getMessage());
-    //     // return response()->json(['message' => 'Error deleting category'], 500);
-    // }
-
-    return response()->json([
-        'status' => true,
-        'message' => 'Category deleted successfully'
-    ], 200);
-}
 }
