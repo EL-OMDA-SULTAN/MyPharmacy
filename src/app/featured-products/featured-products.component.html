@@ -1,18 +1,14 @@
 
-
-
-
-<div class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center main-container">
-    <div class="row w-100">
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center main-container">
+    <div class="row w-100 align-items-center">
       <div class="col-md-4 mb-4">
         <div class="text-center">
           <img src="assets/images/Clear.jpg" class="img-fluid mb-3 product-image" alt="Clearance">
-        
         </div>
       </div>
       <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-4 mb-4" *ngFor="let product of products; let i = index">
+        <div class="row align-items-center">
+          <div class="col-md-4 mb-4 mt-5" *ngFor="let product of products; let i = index">
             <div class="product-card text-center">
               <img [src]="product.image" class="img-fluid product-image-full" alt="{{ product.name }}">
             </div>
@@ -23,7 +19,7 @@
   </div>
   
 
-  <div class="container-fluid-img vh-75 d-flex flex-column justify-content-center align-items-center ">
+  <div class="container-fluid-img d-flex flex-column justify-content-center align-items-center ">
     <div class="row w-100">
       <div class="col-md-4 mb-4" *ngFor="let image of images">
         <div class="text-center">

@@ -1,10 +1,18 @@
 footer {
     padding-top: 20px;
     padding-bottom: 20px;
+    background-color: #f7f9fa !important;
+    
   }
   
   footer a {
-    color: #000;
+    font-size: 18px;
+    display: inline-block;
+    color: #00000095;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    padding: 5px 0 !important;
+    font-weight: bold;
   }
   
   footer a:hover {
@@ -17,6 +25,16 @@ footer {
   
   footer .fa:hover {
     color: #0056b3;
+  }
+
+  .list-unstyled i{
+   color: #00000095;
+   margin-right: 7px;
+  }
+
+  .social i{
+    color: #00000095;
+    margin-right: 7px;
   }
 
   @media (max-width: 767px) {

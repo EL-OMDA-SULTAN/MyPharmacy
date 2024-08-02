@@ -40,6 +40,9 @@ import { AdsProductsComponent } from './ads-products/ads-products.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BestSalesComponent } from './best-sales/best-sales.component';
 import { BestSallerPharmacyComponent } from './best-saller-pharmacy/best-saller-pharmacy.component';
+import { PharmacyDetailsComponent } from './pharmacy-details/pharmacy-details.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +80,10 @@ import { BestSallerPharmacyComponent } from './best-saller-pharmacy/best-saller-
     AdsComponent,
     AdsProductsComponent,
     BestSalesComponent,
-    BestSallerPharmacyComponent
+    BestSallerPharmacyComponent,
+    PharmacyDetailsComponent,
+    ProductDetailsComponent,
+    CategoryDetailsComponent
   ],
   imports: [
     BrowserModule,

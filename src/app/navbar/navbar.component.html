@@ -9,8 +9,8 @@
           <i class="fa fa-hospital-o fa-lg"></i> Pharmacies
         </a>
         <ul class="dropdown-menu" aria-labelledby="pharmaciesDropdown">
-          <li><a class="dropdown-item" routerLink=""><i class="fa fa-hospital-o fa-lg"></i> Pharmacy 1</a></li>
-          <li><a class="dropdown-item" routerLink=""><i class="fa fa-hospital-o fa-lg"></i> Pharmacy 2</a></li>
+          <li *ngFor="let pharmacy of pharmacies">
+            <a class="dropdown-item" routerLink="/pharmacy-details/{{pharmacy.Pharmacy_ID}}"><i class="fa fa-hospital-o fa-lg"></i>{{pharmacy.Pharmacy_Name}}</a></li>
         </ul>
       </li>
       <li class="nav-item dropdown">
@@ -18,8 +18,8 @@
           <i class="fa fa-list fa-lg"></i> Categories
         </a>
         <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
-          <li><a class="dropdown-item" routerLink=""><i class="fa fa-list fa-lg"></i> Category 1</a></li>
-          <li><a class="dropdown-item" routerLink=""><i class="fa fa-list fa-lg"></i> Category 2</a></li>
+          <li *ngFor="let category of categories">
+            <a class="dropdown-item" routerLink="/category-details/{{category.Category_ID}}"><i class="fa fa-list fa-lg"></i> {{category.Category_Name}}</a></li>
         </ul>
       </li>
       <li class="nav-item">

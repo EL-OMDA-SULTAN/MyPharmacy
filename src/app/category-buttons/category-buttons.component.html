@@ -1,13 +1,7 @@
-<div class="category-buttons">
-    <div class="category-row">
-      <div class="category-button" *ngFor="let category of topCategories">
+<div class="container mb-5 category-buttons">
+  <div class="row justify-content-center">
+    <div class="category-button col-md-12" *ngFor="let category of topCategories">
         <img [src]="category.icon" alt="{{ category.name }}">
       </div>
-    </div>
-    <div class="category-row">
-      <div class="category-button" *ngFor="let category of bottomCategories">
-        <img [src]="category.icon" alt="{{ category.name }}">
-      </div>
-    </div>
   </div>
-  
+</div>

@@ -25,6 +25,9 @@ export class AuthService {
       })
     });
   }
+  getPharmacy(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/pharmacy`);
+  }
 
   isLoggedIn(): boolean {
     // Check if the user data exists in session storage

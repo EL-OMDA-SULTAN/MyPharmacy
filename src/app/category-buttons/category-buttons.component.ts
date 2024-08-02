@@ -11,9 +11,6 @@ export class CategoryButtonsComponent implements OnInit {
     { name: 'Beauty Accessories', icon: 'assets/icons/beauty-accessories.webp' },
     { name: 'Vitamins & Supplements', icon: 'assets/icons/vitamins-supplements.webp' },
     { name: 'Mom & Baby', icon: 'assets/icons/mom-baby.webp' },
-  ];
-
-  bottomCategories = [
     { name: 'Medications', icon: 'assets/icons/medications.webp' },
     { name: 'Every Day Essentials', icon: 'assets/icons/every-day-essentials.webp' },
     { name: 'Skin Care', icon: 'assets/icons/skin-care.webp' },

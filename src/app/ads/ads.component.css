@@ -1,5 +1,5 @@
 .container-fluid {
-    background-color: white;
+    background: #191c24 !important;
     margin-bottom: 40px !important;
     margin-top: 40px !important;
   }
@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    filter: grayscale(80%);
   }
 
   .img-fluid {
