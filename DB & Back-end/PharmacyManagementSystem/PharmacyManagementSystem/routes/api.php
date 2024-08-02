@@ -25,3 +25,9 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('test', function () {
     return 'Route is working!';
 });
+
+Route::apiResource('category', CategoryController::class);
+Route::apiResource('product', ProductController::class);
+Route::apiResource('sale', SaleController::class);
+Route::apiResource('order', OrderController::class);
+Route::apiResource('wishlist', WishlistController::class);

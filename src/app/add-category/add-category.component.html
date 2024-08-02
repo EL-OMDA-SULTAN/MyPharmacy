@@ -43,10 +43,10 @@
         <h4 class="mb-4 text-center">{{ isUpdate ? 'Update Category' : 'Add Category' }}</h4>
         <div class="mb-3">
           <label for="categoryName" class="form-label">Category Name</label>
-          <input type="text" id="categoryName" formControlName="name" class="form-control"
+          <input type="text" id="categoryName" formControlName="Category_Name" class="form-control"
             placeholder="Enter category name">
-          <div class="error text-danger" *ngIf="fCategory['name'].touched && fCategory['name'].invalid">
-            <span *ngIf="fCategory['name'].errors && fCategory['name'].errors['required']">* Name is required</span>
+          <div class="error text-danger" *ngIf="fCategory['Category_Name'].touched && fCategory['Category_Name'].invalid">
+            <span *ngIf="fCategory['Category_Name'].errors && fCategory['Category_Name'].errors['required']">* Name is required</span>
           </div>
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="categoryForm.invalid">

@@ -59,12 +59,12 @@
             </thead>
             <tbody>
               <tr *ngFor="let category of visibleCategories" [@fadeIn]>
-                <td>{{ category.id }}</td>
-                <td>{{ category.name }}</td>
-                <td>{{ category.products }}</td>
+                <td>{{ category.Category_ID }}</td>
+                <td>{{ category.Category_Name }}</td>
+                <td>{{ category.number_of_products }}</td>
                 <td>
-                  <button class="btn btn-sm btn-primary" (click)="editCategory(category.id)">Edit</button>
-                  <button class="btn btn-sm btn-danger" (click)="deleteCategory(category.id)">Delete</button>
+                  <button class="btn btn-sm btn-primary" (click)="editCategory(category.Category_ID)">Edit</button>
+                  <button class="btn btn-sm btn-danger" (click)="deleteCategory(category.Category_ID)">Delete</button>
                 </td>
               </tr>
             </tbody>

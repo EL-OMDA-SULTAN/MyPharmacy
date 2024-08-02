@@ -47,18 +47,18 @@ const routes: Routes = [
   { path: 'show-pharmacies', component: ShowPharmaciesComponent },
   { path: 'categories', component: CategoriesComponent },
   { path: 'sales', component: SalesComponent },
-  { path: 'add-category', component: AddCategoryComponent, canActivate: [PharmacyAdminGuard] },
+  { path: 'add-category', component: AddCategoryComponent },
   { path: 'pharmacy-admin', component: PharmacyAdminComponent, canActivate: [PharmacyAdminGuard] },
   { path: 'add-product', component: AddProductComponent, canActivate: [PharmacyAdminGuard] },
   { path: 'show-products', component: ShowProductsComponent },
-<<<<<<< HEAD
+// <<<<<<< HEAD
   { path: 'pharmacy-sales', component: ShowSalesComponent },
   {path:'best-sales',component:BestSalesComponent},
-  {path:'best-saller-pharmacy',component:BestSallerPharmacyComponent}
+  {path:'best-saller-pharmacy',component:BestSallerPharmacyComponent},
 
-=======
+// =======
   { path: 'pharmacy-sales', component: ShowSalesComponent }
->>>>>>> 50fb2253fa2ba4f1d53c705d944f1813fb617ba6
+// >>>>>>> 50fb2253fa2ba4f1d53c705d944f1813fb617ba6
 ];
 
 @NgModule({

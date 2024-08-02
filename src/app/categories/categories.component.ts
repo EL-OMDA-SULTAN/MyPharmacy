@@ -1,5 +1,7 @@
 import { trigger, style, transition, animate } from '@angular/animations';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-categories',
@@ -15,63 +17,26 @@ import { Component } from '@angular/core';
   ]
 })
 export class CategoriesComponent {
-   categories = [
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    { id: 1, name: 'Category 1', products: 10 },
-    { id: 2, name: 'Category 2', products: 15 },
-    { id: 3, name: 'Category 3', products: 7 },
-    // Add more categories as needed
-  ];
-   rowsPerPage = 5;
+  constructor(   private authService: AuthService,private router: Router) {}
+  categories : any = [];
+  rowsPerPage = 5;
   currentPage = 1;
   totalPages = 0;
   visibleCategories : any = [];
   visiblePages : any= [];
 
   ngOnInit() {
-    this.updateTable();
-    this.updatePagination();
+    this.authService.getCategories().subscribe(
+      (data: any) => {
+        this.categories = data;
+        // console.log(this.categories);
+        this.updateTable();
+        this.updatePagination();
+      },
+      (error) => {
+        console.error(error);
+      }
+    )
   }
 
   updateTable() {
@@ -101,9 +66,15 @@ export class CategoriesComponent {
   }
 
   deleteCategory(id: number) {
-    alert(`Delete category with ID: ${id}`);
-    this.categories = this.categories.filter(category => category.id !== id);
-    this.updateTable();
-    this.updatePagination();
-  }
+  console.log(id); // Debug: Check the id value
+  this.authService.deleteCategory(id).subscribe(
+    response => {
+      console.log(response); // Handle the response if needed
+      // Optionally, update the UI or notify the user
+    },
+    error => {
+      console.error(error); // Handle any errors
+    }
+  );
+}
 }
