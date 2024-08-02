@@ -61,7 +61,7 @@ export class AddProductComponent {
     formData.append('Category_Id', this.productForm.value.Category_Id);
     formData.append('image', this.selectedFile!);
     formData.append('Is_deleted', this.productForm.value.Is_deleted);
-    // console.log('FormData content:', formData);
+    console.log('FormData content:', formData);
     //   for (const pair of formData.entries()) {
     //   console.log(`${pair[0]}: ${pair[1]}`);
     // }
