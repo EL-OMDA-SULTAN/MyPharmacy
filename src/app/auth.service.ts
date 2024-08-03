@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable} from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -127,5 +128,8 @@ deleteCategory(categoryId: number): Observable<any> {
   deleteWishlist(wishlistId: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/wishlists/${wishlistId}`);
   }
-
+  
+  placeOrder(order: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/orders`, order);
+  }
 }
