@@ -1,81 +1,62 @@
 <div class="container-fluid mt-4">
-    <div class="row">
-      <!-- Sidebar -->
-      <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-        <div class="position-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/pharmacy-admin">
-                <span data-feather="home"></span>
-                Dashboard
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/add-product">
-                <span data-feather="plus-square"></span>
-                Add Product
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/show-products">
-                <span data-feather="box"></span>
-                Show Products
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/pharmacy-sales">
-                <span data-feather="dollar-sign"></span>
-                Show Sales
-              </a>
-            </li>
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pharmacy-admin">
+              <span data-feather="home"></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/add-product">
+              <span data-feather="plus-square"></span>
+              Add Product
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/show-products">
+              <span data-feather="box"></span>
+              Show Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pharmacy-sales">
+              <span data-feather="dollar-sign"></span>
+              Show Sales
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-          </ul>
-        </div>
-      </nav>
-
-      <!-- Main Content -->
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2 text-light">Show Products</h1>
-        </div>
-        <div class="row" *ngFor="let product of products">
-          <div class="col-md-10 m-auto">
-            <div class="mt-4">
-              <!-- <h3>Added Products</h3> -->
-              <div class="product-card">
-                <h5>{{ product.Product_Name }}</h5>
-                <hr>
-                <div class="product-details">
-                  <div class="product-image">
-                    <p>product image</p><hr>
-                    <img [src]="'http://127.0.0.1:8000/storage/'+ product.image" alt="">
-                  </div>
-                  <div class="product-info">
-                    <p>Description</p><hr>
-                    <p>{{ product.Description }}</p>
-                  </div>
-                  <div class="product-price">
-                    <p>price</p><hr>
-                    <p>{{ product.Price }}</p>
-                  </div>
-                  <div class="product-quantity">
-                    <p>quantity</p><hr>
-                    <p>{{ product.Quantity }}</p>
-                  </div>
-                  <div class="product-category">
-                    <p>Expire Date</p><hr>
-                    <p>{{product.Expiry_Date}}</p>
-                  </div>
-                  <div class="product-actions">
-                    <p>product actions</p><hr>
-                    <button class="btn btn-primary me-2" routerLink="/add-product/{{product.Product_ID}}">Edit</button>
-                    <button class="btn btn-danger" (click)="deleteProduct(product.Product_ID)">Delete</button>
-                  </div>
-                </div>
-              </div>
+    <!-- Main Content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2 text-light">Show Products</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let product of products">
+          <div class="product-card p-3 border rounded mx-auto">
+            <h5>{{ product.Product_Name }}</h5>
+            <div class="text-center mb-3">
+              <img [src]="'http://127.0.0.1:8000/storage/' + product.image" class="img-fluid small-image" alt="Product Image">
+            </div>
+            <div class="product-info mt-3">
+              <p><strong>Description:</strong> {{ product.Description }}</p>
+              <p><strong>Price:</strong> {{ product.Price }}</p>
+              <p><strong>Quantity:</strong> {{ product.Quantity }}</p>
+              <p><strong>Expire Date:</strong> {{ product.Expiry_Date }}</p>
+            </div>
+            <div class="product-actions mt-2 text-center">
+              <button class="btn btn-primary me-2" routerLink="/add-product/{{product.Product_ID}}">Edit</button>
+              <button class="btn btn-danger" (click)="deleteProduct(product.Product_ID)">Delete</button>
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   </div>
+</div>

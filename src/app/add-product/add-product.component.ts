@@ -135,9 +135,7 @@ export class AddProductComponent implements OnInit {
     // console.log(this.productId);
     // console.log(this.productForm.value);
     console.log('FormData content:', formData);
-    formData.forEach((value, key) => {
-      console.log(`${key}: ${value}`);
-    })
+   
     this.authService.updateProduct(this.productId,formData).subscribe(
       (response) => {
         this.successMessage = 'Product updated successfully';
