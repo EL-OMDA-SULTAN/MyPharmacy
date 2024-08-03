@@ -1,121 +1,121 @@
 <div class="container-fluid mt-4">
-    <div class="row">
-      <!-- Sidebar -->
-      <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-        <div class="position-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/pharmacy-admin">
-                <span data-feather="home"></span>
-                Dashboard
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/add-product">
-                <span data-feather="plus-square"></span>
-                Add Product
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/show-products">
-                <span data-feather="box"></span>
-                Show Products
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/pharmacy-sales">
-                <span data-feather="dollar-sign"></span>
-                Show Sales
-              </a>
-            </li>
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pharmacy-admin">
+              <span data-feather="home"></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/add-product">
+              <span data-feather="plus-square"></span>
+              Add Product
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/show-products">
+              <span data-feather="box"></span>
+              Show Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pharmacy-sales">
+              <span data-feather="dollar-sign"></span>
+              Show Sales
+            </a>
+          </li>
 
 
-          </ul>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2 text-light">{{formName}}</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6 offset-md-2">
+          <form (ngSubmit)="onSubmit()"  [formGroup]="productForm">
+            <div class="form-group mb-3">
+              <label for="Product_Name" class="form-label">Product Name</label>
+              <input type="text" id="Product_Name" formControlName="Product_Name" class="form-control"
+                placeholder="Enter category name">
+              <div class="error text-danger" *ngIf="fProduct['Product_Name'].touched && fProduct['Product_Name'].invalid">
+                <span *ngIf="fProduct['Product_Name'].errors && fProduct['Product_Name'].errors['required']">* Name is
+                  required</span>
+                  <span *ngIf="fProduct['Product_Name'].errors && fProduct['Product_Name'].errors['pattern']">* Name only characters</span>
+              </div>
+            </div>
+            <div class="form-group mb-3 mt-3">
+              <label for="category" class="form-label">Category</label>
+              <select name="category" id="category" formControlName="Category_Id">
+                <option value="" disabled selected>Select Category</option>
+                <option *ngFor="let category of categories" [value]="category.Category_ID">{{category.Category_Name}}</option>
+              </select>
+              <div class="error text-danger" *ngIf="fProduct['Category_Id'].touched && fProduct['Category_Id'].invalid">
+                <span *ngIf="fProduct['Category_Id'].errors && fProduct['Category_Id'].errors['required']">* Category is
+                  required</span>
+              </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="price" class="form-label">Price</label>
+              <input type="number" id="price" formControlName="Price" class="form-control" placeholder="Enter price">
+              <div class="error text-danger" *ngIf="fProduct['Price'].touched && fProduct['Price'].invalid">
+                <span *ngIf="fProduct['Price'].errors && fProduct['Price'].errors['required']">* Price is
+                  required</span>
+              </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="quantity" class="form-label">Quantity</label>
+              <input type="number" id="quantity" formControlName="Quantity" class="form-control"
+                placeholder="Enter quantity">
+              <div class="error text-danger" *ngIf="fProduct['Quantity'].touched && fProduct['Quantity'].invalid">
+                <span *ngIf="fProduct['Quantity'].errors && fProduct['Quantity'].errors['required']">* Quantity is
+                  required</span>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" id="description" formControlName="Description" class="form-control"
+                placeholder="Enter description">
+              <div class="error text-danger" *ngIf="fProduct['Description'].touched && fProduct['Description'].invalid">
+                <span *ngIf="fProduct['Description'].errors && fProduct['Description'].errors['required']">* Description
+                  is required</span>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="image" class="form-label">Image</label>
+              <input type="file" id="image" formControlName="image" class="form-control"
+                placeholder="Enter image" (change)="onFileChange($event)">
+              <div class="error text-danger" *ngIf="fProduct['image'].touched && fProduct['image'].invalid">
+                <span *ngIf="fProduct['image'].errors && fProduct['image'].errors['required']">* Image is
+                  required</span>
+              </div>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="date" class="form-label">Expiry Date</label>
+              <input type="date" id="date" formControlName="Expiry_Date" class="form-control"
+                placeholder="Enter expiry date">
+              <div class="error text-danger" *ngIf="fProduct['Expiry_Date'].touched && fProduct['Expiry_Date'].invalid">
+                <span *ngIf="fProduct['Expiry_Date'].errors && fProduct['Expiry_Date'].errors['required']">* Expiry
+                  Date is required</span>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid" *ngIf="!isUpdate">Add Product</button>
+            <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid" *ngIf="isUpdate">Update Product</button>
+          </form>
+
         </div>
-      </nav>
-
-      <!-- Main Content -->
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2 text-light">{{formName}}</h1>
-        </div>
-        <div class="row">
-          <div class="col-md-6 offset-md-2">
-            <form (ngSubmit)="onSubmit()"  [formGroup]="productForm">
-              <div class="form-group mb-3">
-                <label for="Product_Name" class="form-label">Product Name</label>
-                <input type="text" id="Product_Name" formControlName="Product_Name" class="form-control"
-                  placeholder="Enter category name">
-                <div class="error text-danger" *ngIf="fProduct['Product_Name'].touched && fProduct['Product_Name'].invalid">
-                  <span *ngIf="fProduct['Product_Name'].errors && fProduct['Product_Name'].errors['required']">* Name is
-                    required</span>
-                    <span *ngIf="fProduct['Product_Name'].errors && fProduct['Product_Name'].errors['pattern']">* Name only characters</span>
-                </div>
-              </div>
-              <div class="form-group mb-3 mt-3">
-                <label for="category" class="form-label">Category</label>
-                <select name="category" id="category" formControlName="Category_Id">
-                  <option value="" disabled selected>Select Category</option>
-                  <option *ngFor="let category of categories" [value]="category.Category_ID">{{category.Category_Name}}</option>
-                </select>
-                <div class="error text-danger" *ngIf="fProduct['Category_Id'].touched && fProduct['Category_Id'].invalid">
-                  <span *ngIf="fProduct['Category_Id'].errors && fProduct['Category_Id'].errors['required']">* Category is
-                    required</span>
-                </div>
-              </div>
-
-              <div class="form-group mb-3">
-                <label for="price" class="form-label">Price</label>
-                <input type="number" id="price" formControlName="Price" class="form-control" placeholder="Enter price">
-                <div class="error text-danger" *ngIf="fProduct['Price'].touched && fProduct['Price'].invalid">
-                  <span *ngIf="fProduct['Price'].errors && fProduct['Price'].errors['required']">* Price is
-                    required</span>
-                </div>
-              </div>
-
-              <div class="form-group mb-3">
-                <label for="quantity" class="form-label">Quantity</label>
-                <input type="number" id="quantity" formControlName="Quantity" class="form-control"
-                  placeholder="Enter quantity">
-                <div class="error text-danger" *ngIf="fProduct['Quantity'].touched && fProduct['Quantity'].invalid">
-                  <span *ngIf="fProduct['Quantity'].errors && fProduct['Quantity'].errors['required']">* Quantity is
-                    required</span>
-                </div>
-              </div>
-              <div class="form-group mb-3">
-                <label for="description" class="form-label">Description</label>
-                <input type="text" id="description" formControlName="Description" class="form-control"
-                  placeholder="Enter description">
-                <div class="error text-danger" *ngIf="fProduct['Description'].touched && fProduct['Description'].invalid">
-                  <span *ngIf="fProduct['Description'].errors && fProduct['Description'].errors['required']">* Description
-                    is required</span>
-                </div>
-              </div>
-              <div class="form-group mb-3">
-                <label for="image" class="form-label">Image</label>
-                <input type="file" id="image" formControlName="image" class="form-control"
-                  placeholder="Enter image" (change)="onFileChange($event)">
-                <div class="error text-danger" *ngIf="fProduct['image'].touched && fProduct['image'].invalid">
-                  <span *ngIf="fProduct['image'].errors && fProduct['image'].errors['required']">* Image is
-                    required</span>
-                </div>
-              </div>
-
-              <div class="form-group mb-3">
-                <label for="date" class="form-label">Expiry Date</label>
-                <input type="date" id="date" formControlName="Expiry_Date" class="form-control"
-                  placeholder="Enter expiry date">
-                <div class="error text-danger" *ngIf="fProduct['Expiry_Date'].touched && fProduct['Expiry_Date'].invalid">
-                  <span *ngIf="fProduct['Expiry_Date'].errors && fProduct['Expiry_Date'].errors['required']">* Expiry
-                    Date is required</span>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid" *ngIf="!isUpdate">Add Product</button>
-              <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid" *ngIf="isUpdate">Update Product</button>
-            </form>
-
-          </div>
-        </div>
-      </main>
-    </div>
+      </div>
+    </main>
   </div>
+</div>
