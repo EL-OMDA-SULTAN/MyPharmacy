@@ -10,7 +10,7 @@ class Orders extends Model
     use HasFactory;
     // If Order_ID is the primary key
     protected $primaryKey = 'Order_ID';
-    
+
     // If you don't want Laravel to increment the primary key automatically
     public $incrementing = false;
 
