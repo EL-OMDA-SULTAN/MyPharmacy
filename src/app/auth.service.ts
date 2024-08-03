@@ -108,4 +108,8 @@ deleteCategory(categoryId: number): Observable<any> {
   return this.http.delete<any>(`${this.apiUrl}/products/${id}`);
   }
 
+  placeOrder(order: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/orders`, order);
+  }
+
 }

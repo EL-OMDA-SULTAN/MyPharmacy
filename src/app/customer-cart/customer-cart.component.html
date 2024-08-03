@@ -5,11 +5,11 @@
       <h2 class="mb-4">Shopping Cart</h2>
       <div class="cart-item row mb-3" *ngFor="let item of cartItems">
         <div class="col-3">
-          <img [src]="item.imageUrl" alt="Product Image" class="img-fluid rounded">
+          <img [src]="item.image" alt="Product Image" class="img-fluid rounded">
         </div>
         <div class="col-5">
-          <h4>{{ item.name }}</h4>
-          <!-- <p class="text-muted">{{ item.description }}</p> -->
+          <h4>{{ item.Product_Name }}</h4>
+          <p>{{ item.Description }}</p>
           <div class="quantity-controls d-flex align-items-center">
             <button class="btn btn-outline-secondary btn-sm" (click)="decreaseQuantity(item)">-</button>
             <input type="text" class="form-control text-center mx-2" [value]="item.quantity" readonly>
@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="col-2">
-          <h5 class="text-muted">${{ item.price | number:'1.2-2' }}</h5>
+          <h5 class="text-muted">${{ item.Price | number:'1.2-2' }}</h5>
         </div>
         <div class="col-2 text-right">
           <button class="btn btn-danger" (click)="removeItem(item)">Remove</button>
@@ -31,24 +31,21 @@
         <div class="card-body">
           <h3>Payment Summary</h3>
           <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between align-items-center mb-3"
-              *ngFor="let item of cartItems">
+            <li class="list-group-item d-flex justify-content-between align-items-center mb-3" *ngFor="let item of cartItems">
               <div>
-                <h6>{{ item.name }}</h6>
+                <h6>{{ item.Product_Name }}</h6>
                 <small class="text-muted">Quantity: {{ item.quantity }}</small>
               </div>
-              <span class="text-muted">${{ (item.price * item.quantity) | number:'1.2-2' }}</span>
+              <span class="text-muted">${{ (item.Price * item.quantity) | number:'1.2-2' }}</span>
             </li>
           </ul>
           <div class="d-flex justify-content-between align-items-center">
             <h5>Total:</h5>
             <h5 class="text-primary">${{ total | number:'1.2-2' }}</h5>
           </div>
-          <button class="btn btn-primary btn-block mt-4" routerLink="/customer-checkout">Proceed to Checkout</button>
+          <button class="btn btn-primary btn-block mt-4" (click)="checkout()">Proceed to Checkout</button>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-

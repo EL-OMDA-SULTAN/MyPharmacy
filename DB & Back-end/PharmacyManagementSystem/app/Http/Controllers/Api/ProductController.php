@@ -18,14 +18,16 @@ class ProductController extends Controller
     }
 
     public function show($id)
-    {
-        $product = Products::find($id);
-        if ($product) {
-            return response()->json($product);
-        } else {
-            return response()->json(['message' => 'Product not found'], 404);
-        }
+{
+    $product = Products::find($id);
+
+    if ($product) {
+        return response()->json($product);
+    } else {
+        return response()->json(['message' => 'Product not found'], 404);
     }
+}
+    
 
     public function store(Request $request)
     {

@@ -30,7 +30,19 @@ Route::get('test', function () {
 
 Route::apiResource('category', CategoryController::class);
 Route::apiResource('products', ProductController::class);
-// Route::put('/product/{id}',ProductController ::class,'update');
+Route::get('products/{id}', [ProductController::class, 'show']);
 Route::apiResource('sale', SaleController::class);
-Route::apiResource('order', OrderController::class);
+
+
+Route::get('orders/products/{id}', [OrderController::class, 'getProductDetails']);
+
+Route::delete('/orders/{id}', [OrderController::class, 'destroy']);
+Route::put('/orders/{id}', [OrderController::class, 'update']);
+Route::get('/orders', [OrderController::class, 'getOrdersByCustomerId']);
+Route::post('/orders', [OrderController::class, 'store']);
+Route::get('/orders', [OrderController::class, 'index']);
+Route::patch('/orders/{id}/soft-delete', [OrderController::class, 'softDelete']);
+
+Route::post('orders/{productId}/soft-delete/{customerId}', [OrderController::class, 'softDelete']);
+
 Route::apiResource('wishlist', WishlistController::class);

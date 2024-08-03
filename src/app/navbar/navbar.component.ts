@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { BasketService } from '../basket.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -12,10 +14,17 @@ export class NavbarComponent {
   categories: any = [];
   products: any = [];
   pharmacies: any = [];
+  basketItems: any[] = [];
 
-  constructor(private router: Router,private authService: AuthService) {}
+
+  constructor(private router: Router,private authService: AuthService , private basketService: BasketService) {}
 
   ngOnInit(): void {
+
+    this.basketService.basket$.subscribe(items => {
+      this.basketItems = items;
+    });
+
     this.userType = sessionStorage.getItem('userType');
     this.authService.getCategories().subscribe((data: any) => {
       this.categories = data;
