@@ -9,12 +9,8 @@
           <div class="col-md-6">
             <div class="card-body text-center">
               <h3 class="card-title mb-5">{{ productDetails.Product_Name }}</h3>
-              <!-- <p class="card-text">{{ productDetails.Description }}</p>
-              <p class="card-text"><strong>Price:</strong> ${{ productDetails.Price }}</p>
-              <p class="card-text"><strong>Expiry Date:</strong> {{ productDetails.Expiry_Date | date }}</p>
-              <p class="card-text"><strong>Category:</strong> {{ productDetails.Category_Name }}</p> -->
-              <button class="btn btn-primary me-3 mb-3" (click)="addToCart(productDetails.Product_ID)"><i class="fa fa-shopping-cart fa-lg me-2"></i>Basket</button>
-              <button class="btn btn-secondary ms-2 mb-3" (click)="addToWishlist(productDetails.Product_ID)"><i class="fa fa-heart fa-lg me-2"></i>Wishlist</button>
+              <!-- <button class="btn btn-primary me-3 mb-3" (click)="addToCart(productDetails.Product_ID)"><i class="fa fa-shopping-cart fa-lg me-2"></i>Basket</button> -->
+              <button class="btn btn-secondary ms-2 mb-3" (click)="addToWishlist()"><i class="fa fa-heart fa-lg me-2"></i>Wishlist</button>
             </div>
           </div>
         </div>

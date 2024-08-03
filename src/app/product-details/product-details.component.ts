@@ -13,30 +13,39 @@ export class ProductDetailsComponent {
 
   productDetails: any = [];
   categoryName:any="";
-  // productID: any;
+  pharmacyName:any="";
+  customerId:number=0;
+  productId:number=0;
 
   ngOnInit(): void {
-    if(this.authService.isLoggedIn()){
-      this.route.navigate(['/login']);
-    }
+    const user = JSON.parse(sessionStorage.getItem('user') || '{}');
+    this.customerId = user.User_ID;
     const productId = this.router.snapshot.paramMap.get('id');
+    this.productId = Number(productId);
     this.authService.getProduct(productId).subscribe ((data: any)=> {
       this.productDetails = data;
       // console.log(this.productDetails.Category_Id);
       const categoryID = this.productDetails.Category_Id;
       this.authService.getCategoryById(categoryID).subscribe((data: any) => {
         this.categoryName = data.Category_Name;
-        console.log(this.categoryName);
-      })
-      // console.log(productId);
-      // console.log(this.productDetails);
+        // console.log(this.categoryName);
+      });
+      const pharmacyID = this.productDetails.Pharmacy_ID;
+      this.authService.getPharmacyById(pharmacyID).subscribe((data: any) => {
+        this.pharmacyName = data.Pharmacy_Name;
+        // console.log(this.pharmacyName);
+      });
     });
+    console.log(this.productId,this.customerId);
   }
   addToCart(productID: number) {
     // this.authService.addToCart(productID);
   }
-  addToWishlist(productID: number) {
-    // this.authService.addToWishlist(productID);
+  addToWishlist() {
+    this.authService.addWishlist(this.customerId,this.productId).subscribe((data: any) => {
+      console.log(data);
+    })
+      this.route.navigate(['/customer-wishlist']);
   }
 
 }

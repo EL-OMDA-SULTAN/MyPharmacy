@@ -28,6 +28,9 @@ export class AuthService {
   getPharmacy(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/pharmacy`);
   }
+  getPharmacyById(pharmacyId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/pharmacy/${pharmacyId}`);
+  }
   getCustomer(): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/customers`);
   }
@@ -106,6 +109,23 @@ deleteCategory(categoryId: number): Observable<any> {
   deleteProduct(id: number): Observable<any> {
   console.log(id); // Debug: Check the id value
   return this.http.delete<any>(`${this.apiUrl}/products/${id}`);
+  }
+
+  // wishlist
+  getWishlist(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/wishlists`);
+  }
+
+  getWishlistById(wishlistId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/wishlists/${wishlistId}`);
+  }
+
+  addWishlist(userId: number, productId: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/wishlists/${userId}/${productId}`, {});  
+  }
+
+  deleteWishlist(wishlistId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/wishlists/${wishlistId}`);
   }
 
 }

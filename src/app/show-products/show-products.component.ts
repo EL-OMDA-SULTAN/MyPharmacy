@@ -82,9 +82,9 @@ export class ShowProductsComponent implements OnInit {
   deleteProduct(productId: number) {
     this.authService.deleteProduct(productId).subscribe({
       next: (response) => {
-        console.log('Product deleted successfully', response);
-        // Reload products or handle success response
-        this.loadProducts();
+        // reload the products
+        this.products = [];
+        this.ngOnInit();
       },
       error: (error) => {
         console.error('Error deleting product', error);

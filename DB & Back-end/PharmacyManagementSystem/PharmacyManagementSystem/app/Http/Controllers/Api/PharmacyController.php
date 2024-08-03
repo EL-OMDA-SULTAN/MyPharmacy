@@ -13,10 +13,14 @@ use Illuminate\Support\Str;
 
 class PharmacyController extends Controller
 {
-    public function show(){
+    public function index(){
 
         return Pharmacies::all();
+    }
 
+    public function show($id)
+    {
+        return Pharmacies::find($id);
     }
     public function register(Request $request)
     {
