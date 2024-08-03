@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Products;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 //storage
@@ -67,6 +68,10 @@ class ProductController extends Controller
         $product->image = $imagePath;
         $product->Is_deleted = 0;
         $product->save();
+
+        $category = Categories::find($request->Category_Id);
+        $category->number_of_products = $category->number_of_products + 1;
+        $category->save();
 
         return response()->json(['message' => 'Product created successfully!', 'image' => $imageUrl], 201);
     }
@@ -147,11 +152,16 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Products::find($id);
+        $category = Categories::find($product->Category_Id);
+        $category->number_of_products = $category->number_of_products - 1;
+        $category->save();
         if ($product) {
             $product->update(['Is_deleted' => 1]);
             return response()->json(['message' => 'Product deleted']);
         } else {
             return response()->json(['message' => 'Product not found'], 404);
         }
+
+
     }
 }

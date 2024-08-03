@@ -54,6 +54,11 @@
             <hr>
             <p><strong>Expire Date : </strong>{{product.Expiry_Date}}</p>
             <hr>
+            <div class="text-center">
+              <button class="btn btn-primary me-2" routerLink="/add-product/{{product.Product_ID}}">Edit</button>
+              <button class="btn btn-danger" (click)="deleteProduct(product.Product_ID)">Delete</button>
+            </div>
+            
           </div>
         </div>
       </div>

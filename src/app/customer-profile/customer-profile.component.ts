@@ -7,17 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./customer-profile.component.css']
 })
 export class CustomerProfileComponent {
-  customer = {
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    phone: '555-555-5555',
-    address: '123 Main St, City, Country',
-    profilePictureUrl: 'assets/profile-placeholder.png'
-  };
+  customer:any=[];
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+
+    const customerData=sessionStorage.getItem('user');
+    this.customer = JSON.parse(customerData || '{}');
+    console.log(customerData);
+  }
 
   goToUpdateProfile() {
     this.router.navigate(['/customer/update-profile']);

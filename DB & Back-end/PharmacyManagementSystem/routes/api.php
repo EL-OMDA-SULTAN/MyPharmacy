@@ -20,9 +20,14 @@ Route::delete('/customers/{id}', [CustomerController::class, 'destroy']);
 
 // Pharmacy routes
 Route::post('/pharmacy', [PharmacyController::class, 'register']);
-Route::get('/pharmacy', [PharmacyController::class, 'show']);
+Route::get('/pharmacy', [PharmacyController::class, 'index']);
+Route::get('/pharmacy/{id}', [PharmacyController::class, 'show']);
 Route::post('/login', [UserController::class, 'login']);
-
+// WishList routes
+Route::post('/wishlists/{user_id}/{product_id}', [WishlistController::class, 'store']);
+Route::get('/wishlists', [WishlistController::class, 'index']);
+Route::get('/wishlists/{id}', [WishlistController::class, 'show']);
+Route::delete('/wishlists/{id}', [WishlistController::class, 'destroy']);
 // Test route
 Route::get('test', function () {
     return 'Route is working!';
@@ -32,17 +37,5 @@ Route::apiResource('category', CategoryController::class);
 Route::apiResource('products', ProductController::class);
 Route::get('products/{id}', [ProductController::class, 'show']);
 Route::apiResource('sale', SaleController::class);
-
-
-Route::get('orders/products/{id}', [OrderController::class, 'getProductDetails']);
-
-Route::delete('/orders/{id}', [OrderController::class, 'destroy']);
-Route::put('/orders/{id}', [OrderController::class, 'update']);
-Route::get('/orders', [OrderController::class, 'getOrdersByCustomerId']);
-Route::post('/orders', [OrderController::class, 'store']);
-Route::get('/orders', [OrderController::class, 'index']);
-Route::patch('/orders/{id}/soft-delete', [OrderController::class, 'softDelete']);
-
-Route::post('orders/{productId}/soft-delete/{customerId}', [OrderController::class, 'softDelete']);
-
+Route::apiResource('order', OrderController::class);
 Route::apiResource('wishlist', WishlistController::class);

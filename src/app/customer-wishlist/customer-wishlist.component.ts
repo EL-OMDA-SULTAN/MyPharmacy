@@ -1,41 +1,53 @@
 import { Component } from '@angular/core';
-interface WishlistItem {
-  id: number;
-  name: string;
-  description: string;
-  imageUrl: string;
-}
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-customer-wishlist',
   templateUrl: './customer-wishlist.component.html',
   styleUrls: ['./customer-wishlist.component.css']
 })
 export class CustomerWishlistComponent {
-   wishlistItems: WishlistItem[] = [
-    {
-      id: 1,
-      name: 'Product 1',
-      description: 'This is a great product.',
-      imageUrl: 'path/to/product1.jpg'
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-      description: 'This is another great product.',
-      imageUrl: 'path/to/product2.jpg'
-    }
-  ];
+  wishlistItems: any = [];
+  products: any = [];
+  customerID: number = 0;
+  noItems: boolean = false;
 
-  constructor() {}
+  constructor( private router: Router,private authService: AuthService,private route:ActivatedRoute) {}
 
-  ngOnInit(): void {}
-
-  addToCart(item: WishlistItem): void {
-    // Implement add to cart logic here
-    alert(`${item.name} added to cart!`);
+  ngOnInit(): void {
+    const storedCustomerID = JSON.parse(sessionStorage.getItem('user') || '{}');
+    this.customerID = storedCustomerID.User_ID;
+    console.log(this.customerID);
+    this.authService.getWishlistById(this.customerID).subscribe((data: any) => {
+      this.wishlistItems = data;
+      if (this.wishlistItems.length == 0) {
+        this.noItems = true;
+      } else {
+        this.noItems = false;
+      }
+      // console.log(this.wishlistItems);
+      for (let i = 0; i < this.wishlistItems.length; i++) {
+        this.authService.getProduct(this.wishlistItems[i].Product_ID).subscribe((data: any) => {
+          this.products.push(data);
+        });
+      }
+      console.log(this.products);
+      // console.log(this.wishlistItems);
+    });
   }
 
-  removeFromWishlist(item: WishlistItem): void {
-    this.wishlistItems = this.wishlistItems.filter(wishlistItem => wishlistItem.id !== item.id);
+  addToCart( id: number ): void {
+    
+  }
+
+  removeFromWishlist( id: number): void {
+    this.authService.deleteWishlist(id).subscribe((data: any) => {
+      // console.log(data);
+      // this.wishlistItems = data;
+      this.products = [];
+      this.ngOnInit();
+      window.location.reload();
+      // this.router.navigate(['/customer-wishlist']);
+    });
   }
 }
