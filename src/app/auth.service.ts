@@ -111,4 +111,21 @@ deleteCategory(categoryId: number): Observable<any> {
   return this.http.delete<any>(`${this.apiUrl}/products/${id}`);
   }
 
+  // wishlist
+  getWishlist(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/wishlists`);
+  }
+
+  getWishlistById(wishlistId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/wishlists/${wishlistId}`);
+  }
+
+  addWishlist(userId: number, productId: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/wishlists/${userId}/${productId}`, {});
+  }
+
+  deleteWishlist(wishlistId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/wishlists/${wishlistId}`);
+  }
+
 }
