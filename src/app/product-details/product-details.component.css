@@ -1,0 +1,81 @@
+.card {
+  margin-bottom: 20px;
+  background-color: #2a3038;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  border: 1px solid #ccc;
+  color: white;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card-title {
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #2a3038;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0e0f14;
+}
+
+.btn-primary i{
+  color: black;
+}
+
+.btn-secondary{
+  background-color: #2a3038;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-secondary i{
+  color: red;
+}
+
+.btn-secondary:hover {
+  background-color: #0e0f14;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.list-group li{
+  margin-top: 20px;
+  background-color: #0e0f14b8 !important;
+  border: 2px solid white;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 0 5px white;
+  font-size: 20px;
+}
+
+.list-group li strong{
+  /* font-weight: 600; */
+  color: black;
+  margin-right: 5px !important;
+  background-color: rgb(153, 153, 4);
+}

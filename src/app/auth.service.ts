@@ -88,7 +88,8 @@ deleteCategory(categoryId: number): Observable<any> {
   }
 
   getProduct(id:any): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/products`,id);
+    // console.log(id)
+    return this.http.get<any>(`${this.apiUrl}/products/${id}`);
   }
 
   addProduct(data:FormData){

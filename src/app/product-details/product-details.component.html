@@ -1,1 +1,41 @@
-<p>product-details works!</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card mb-4">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <!-- <img [src]="productDetails.image" class="card-img" alt="{{ productDetails.Product_Name }}"> -->
+          </div>
+          <div class="col-md-6">
+            <div class="card-body text-center">
+              <h3 class="card-title mb-5">{{ productDetails.Product_Name }}</h3>
+              <!-- <p class="card-text">{{ productDetails.Description }}</p>
+              <p class="card-text"><strong>Price:</strong> ${{ productDetails.Price }}</p>
+              <p class="card-text"><strong>Expiry Date:</strong> {{ productDetails.Expiry_Date | date }}</p>
+              <p class="card-text"><strong>Category:</strong> {{ productDetails.Category_Name }}</p> -->
+              <button class="btn btn-primary me-3 mb-3" (click)="addToCart(productDetails.Product_ID)"><i class="fa fa-shopping-cart fa-lg me-2"></i>Basket</button>
+              <button class="btn btn-secondary ms-2 mb-3" (click)="addToWishlist(productDetails.Product_ID)"><i class="fa fa-heart fa-lg me-2"></i>Wishlist</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h4 class="card-title mb-3 mt-2">Product Details</h4>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Price:</strong>{{ productDetails.Price }} LE</li>
+            <li class="list-group-item"><strong>Expiry Date:</strong> {{ productDetails.Expiry_Date | date }}</li>
+            <li class="list-group-item"><strong>Category:</strong> {{ categoryName }}</li>
+            <li class="list-group-item"><strong>Quantity:</strong> {{ productDetails.Quantity }}</li>
+            <li class="list-group-item"><strong>Description:</strong><br> {{ productDetails.Description }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -65,7 +65,7 @@ const routes: Routes = [
   {path:'category-details/:id',component:CategoryDetailsComponent},
   {path:'pharmacy-details',component:PharmacyDetailsComponent},
   {path:'pharmacy-details/:id',component:PharmacyDetailsComponent},
-  {path:'product-details',component:ProductDetailsComponent},
+  // {path:'product-details',component:ProductDetailsComponent},
   {path:'product-details/:id',component:ProductDetailsComponent},
   { path: 'pharmacy-sales', component: ShowSalesComponent }
 // >>>>>>> 50fb2253fa2ba4f1d53c705d944f1813fb617ba6
