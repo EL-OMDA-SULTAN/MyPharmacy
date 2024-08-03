@@ -37,7 +37,7 @@
       <!-- Main Content -->
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2 text-light">Add Product</h1>
+          <h1 class="h2 text-light">{{formName}}</h1>
         </div>
         <div class="row">
           <div class="col-md-6 offset-md-2">
@@ -94,7 +94,7 @@
               <div class="form-group mb-3">
                 <label for="image" class="form-label">Image</label>
                 <input type="file" id="image" formControlName="image" class="form-control"
-                  placeholder="Enter image">
+                  placeholder="Enter image" (change)="onFileChange($event)">
                 <div class="error text-danger" *ngIf="fProduct['image'].touched && fProduct['image'].invalid">
                   <span *ngIf="fProduct['image'].errors && fProduct['image'].errors['required']">* Image is
                     required</span>
@@ -110,7 +110,8 @@
                     Date is required</span>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Add Product</button>
+              <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid" *ngIf="!isUpdate">Add Product</button>
+              <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid" *ngIf="isUpdate">Update Product</button>
             </form>
 
           </div>

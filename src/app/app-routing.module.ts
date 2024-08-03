@@ -54,6 +54,7 @@ const routes: Routes = [
   { path: 'add-category/{id}', component: AddCategoryComponent, canActivate: [AdminGuard] },
   { path: 'pharmacy-admin', component: PharmacyAdminComponent, canActivate: [PharmacyAdminGuard] },
   { path: 'add-product', component: AddProductComponent, canActivate: [PharmacyAdminGuard] },
+  { path: 'add-product/:id', component: AddProductComponent, canActivate: [PharmacyAdminGuard] },
   { path: 'show-products', component: ShowProductsComponent },
 // <<<<<<< HEAD
   { path: 'pharmacy-sales', component: ShowSalesComponent },

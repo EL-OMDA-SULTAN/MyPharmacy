@@ -49,7 +49,7 @@ export class CategoriesComponent implements OnInit {
     this.visibleCategories = this.categories.slice(startIndex, endIndex);
   }
 
- 
+
   updatePagination() {
     this.totalPages = Math.ceil(this.categories.length / this.rowsPerPage);
     this.visiblePages = [];
@@ -73,7 +73,7 @@ export class CategoriesComponent implements OnInit {
   deleteCategory(categoryId: number) {
     this.authService.deleteCategory(categoryId).subscribe(
       response => {
-        console.log(response);
+        // console.log(response);
         // Optionally, update the UI or notify the user
         this.ngOnInit(); // Refresh the category list after deletion
       },

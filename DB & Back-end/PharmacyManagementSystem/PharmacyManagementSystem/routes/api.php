@@ -29,7 +29,8 @@ Route::get('test', function () {
 });
 
 Route::apiResource('category', CategoryController::class);
-Route::apiResource('product', ProductController::class);
+Route::apiResource('products', ProductController::class);
+// Route::put('/product/{id}',ProductController ::class,'update');
 Route::apiResource('sale', SaleController::class);
 Route::apiResource('order', OrderController::class);
 Route::apiResource('wishlist', WishlistController::class);

@@ -84,28 +84,27 @@ deleteCategory(categoryId: number): Observable<any> {
 
   // product
   getProducts(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/product`);
+    return this.http.get<any>(`${this.apiUrl}/products`);
   }
 
   getProduct(id:any): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/product`,id);
+    return this.http.get<any>(`${this.apiUrl}/products`,id);
   }
 
-  addProduct(data: any){
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'multipart/form-data');
-    headers.set('Content-Type', 'application/json; charset=utf-8');
-    console.log(data)
-    return this.http.post<any>(`${this.apiUrl}/product`, data,{headers: headers});
+  addProduct(data:FormData){
+    return this.http.post<any>(`${this.apiUrl}/products`, data);
   }
 
-  updateProduct(id: number, product: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/product/${id}`, product);
-  }
+  updateProduct(id: number, data: FormData): Observable<any> {
+    const headers = new HttpHeaders({
+        'Accept': 'application/json'
+    });
+    return this.http.put<any>(`${this.apiUrl}/products/${id}`, data, { headers: headers });
+}
 
   deleteProduct(id: number): Observable<any> {
   console.log(id); // Debug: Check the id value
-  return this.http.delete<any>(`${this.apiUrl}/product/${id}`);
+  return this.http.delete<any>(`${this.apiUrl}/products/${id}`);
   }
- 
+
 }

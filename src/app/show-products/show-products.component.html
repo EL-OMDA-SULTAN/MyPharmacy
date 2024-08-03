@@ -38,38 +38,38 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2 text-light">Show Products</h1>
         </div>
-        <div class="row">
+        <div class="row" *ngFor="let product of products">
           <div class="col-md-10 m-auto">
             <div class="mt-4">
               <!-- <h3>Added Products</h3> -->
               <div class="product-card">
-                <h5>product name</h5>
+                <h5>{{ product.Product_Name }}</h5>
                 <hr>
                 <div class="product-details">
                   <div class="product-image">
                     <p>product image</p><hr>
-                    <img src="" alt="">
+                    <img [src]="'http://127.0.0.1:8000/storage/'+ product.image" alt="">
                   </div>
                   <div class="product-info">
-                    <p>product details</p><hr>
-                    <p>details</p>
+                    <p>Description</p><hr>
+                    <p>{{ product.Description }}</p>
                   </div>
                   <div class="product-price">
-                    <p>product price</p><hr>
-                    <p>300$</p>
+                    <p>price</p><hr>
+                    <p>{{ product.Price }}</p>
                   </div>
                   <div class="product-quantity">
-                    <p>product quantity</p><hr>
-                    <p>50</p>
+                    <p>quantity</p><hr>
+                    <p>{{ product.Quantity }}</p>
                   </div>
                   <div class="product-category">
-                    <p>product category</p><hr>
-                    <p>category 1</p>
+                    <p>Expire Date</p><hr>
+                    <p>{{product.Expiry_Date}}</p>
                   </div>
                   <div class="product-actions">
                     <p>product actions</p><hr>
-                    <button class="btn btn-primary me-2">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-primary me-2" routerLink="/add-product/{{product.Product_ID}}">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteProduct(product.Product_ID)">Delete</button>
                   </div>
                 </div>
               </div>
