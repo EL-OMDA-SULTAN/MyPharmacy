@@ -12,9 +12,10 @@ import { AuthService } from '../auth.service';
 })
 export class ShowProductsComponent implements OnInit {
   products: any[] = [];
+  pharmacyId: any;
   validationErrors: any = {};
   productForm!: FormGroup; // Use definite assignment assertion
-
+  noProducts: boolean = false;
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
@@ -23,6 +24,12 @@ export class ShowProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const userData=sessionStorage.getItem('user');
+    // console.log(userData)
+    if (userData) {
+      this.pharmacyId = JSON.parse(userData).User_ID;
+    }
+    // console.log(this.pharmacyId)
     this.loadProducts();
     this.initProductForm();
   }
@@ -30,7 +37,12 @@ export class ShowProductsComponent implements OnInit {
   loadProducts() {
     this.authService.getProducts().subscribe({
       next: (response) => {
-        this.products = response;
+        for (let i = 0; i < response.length; i++) {
+          if (response[i].Pharmacy_ID == this.pharmacyId) {
+            this.products.push(response[i]);
+          }
+        }
+        // this.products = response;
       },
       error: (error) => {
         console.error('Error loading products', error);

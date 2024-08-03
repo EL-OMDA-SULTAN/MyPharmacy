@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-md-8">
       <div class="card mb-4">
-        <div class="row no-gutters">
-          <div class="col-md-6">
-            <!-- <img [src]="productDetails.image" class="card-img" alt="{{ productDetails.Product_Name }}"> -->
+        <div class="row no-gutters align-items-center">
+          <div class="col-md-6 image_container">
+            <img [src]="'http://127.0.0.1:8000/storage/'+ productDetails.image" class="card-img" alt="{{ productDetails.Product_Name }}">
           </div>
           <div class="col-md-6">
             <div class="card-body text-center">

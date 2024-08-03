@@ -37,26 +37,66 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2 text-light">Show Products</h1>
       </div>
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4" *ngFor="let product of products">
-          <div class="product-card p-3 border rounded mx-auto">
+      <div class="row justify-content-center">
+        <!-- sad smile -->
+        <h1 *ngIf="products.length == 0" class="no_products">Sorry No Products to Show <i class="fa-regular fa-face-sad-tear"></i></h1>
+        <div class="col-lg-4 col-md-6 col-10 "*ngFor="let product of products">
+          <div class="product-card" *ngIf="product.Pharmacy_ID == pharmacyId">
             <h5>{{ product.Product_Name }}</h5>
-            <div class="text-center mb-3">
-              <img [src]="'http://127.0.0.1:8000/storage/' + product.image" class="img-fluid small-image" alt="Product Image">
-            </div>
-            <div class="product-info mt-3">
-              <p><strong>Description:</strong> {{ product.Description }}</p>
-              <p><strong>Price:</strong> {{ product.Price }}</p>
-              <p><strong>Quantity:</strong> {{ product.Quantity }}</p>
-              <p><strong>Expire Date:</strong> {{ product.Expiry_Date }}</p>
-            </div>
-            <div class="product-actions mt-2 text-center">
-              <button class="btn btn-primary me-2" routerLink="/add-product/{{product.Product_ID}}">Edit</button>
-              <button class="btn btn-danger" (click)="deleteProduct(product.Product_ID)">Delete</button>
-            </div>
+            <hr>
+            <img [src]="'http://127.0.0.1:8000/storage/'+ product.image" alt="">
+            <hr>
+            <p><strong>Description : </strong>{{ product.Description }}</p>
+            <hr>
+            <p><strong>Price : </strong>{{ product.Price }} LE</p>
+            <hr>
+            <p><strong>Quantity : </strong>{{ product.Quantity }}</p>
+            <hr>
+            <p><strong>Expire Date : </strong>{{product.Expiry_Date}}</p>
+            <hr>
           </div>
         </div>
       </div>
     </main>
   </div>
 </div>
+          <!-- <div class="mt-4">
+            <div class="product-card">
+              <h5>{{ product.Product_Name }}</h5>
+              <hr>
+              <div class="product-details flex-sm-column flex-lg-row  flex-md-row flex-column ">
+                <div class="product-image">
+                  <p>product image</p>
+                  <hr>
+                  <img [src]="'http://127.0.0.1:8000/storage/'+ product.image" alt="">
+                </div>
+                <div class="product-info">
+                  <p>Description</p>
+                  <hr>
+                  <p>{{ product.Description }}</p>
+                </div>
+                <div class="product-price">
+                  <p>price</p>
+                  <hr>
+                  <p>{{ product.Price }}</p>
+                </div>
+                <div class="product-quantity">
+                  <p>quantity</p>
+                  <hr>
+                  <p>{{ product.Quantity }}</p>
+                </div>
+                <div class="product-category">
+                  <p>Expire Date</p>
+                  <hr>
+                  <p>{{product.Expiry_Date}}</p>
+                </div>
+                <div class="product-actions">
+                  <p>product actions</p>
+                  <hr>
+                  <button class="btn btn-primary me-2" routerLink="/add-product/{{product.Product_ID}}">Edit</button>
+                  <button class="btn btn-danger" (click)="deleteProduct(product.Product_ID)">Delete</button>
+                </div>
+              </div> 
+            </div> 
+          </div>
+  -->

@@ -4,9 +4,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mb-2 mb-lg-0 w-100">
+      <h2 class="nav-link welcome ms-auto" routerLink="/home">Welcome, {{ userName || 'Guest' }}!</h2>
+      <ul class="navbar-nav mb-2 mb-lg-0 w-75">
         <li class="nav-item ms-auto fs-5">
-          <a class="nav-link welcome" routerLink="/home">Welcome, {{ userName || 'Guest' }}!</a>
         </li>
         <li *ngIf="!userName" class="nav-item ms-auto">
           <a class="nav-link" routerLink="/login">Login</a>

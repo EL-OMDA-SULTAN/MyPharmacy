@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './../auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
   submittedCustomer = false;
   submittedPharmacy = false;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService,private router:Router) {}
 
   ngOnInit(): void {
     this.customerForm = this.fb.group({
@@ -82,6 +83,7 @@ export class RegisterComponent implements OnInit {
         this.authService.registerPharmacy(pharmacyData).subscribe(
           response => {
             console.log('Pharmacy registered successfully:', response);
+            this.router.navigate(['/login']);
           },
           error => {
             console.log('Registration error:', error);
