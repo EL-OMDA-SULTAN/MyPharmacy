@@ -29,6 +29,8 @@ Route::get('/wishlists', [WishlistController::class, 'index']);
 Route::get('/wishlists/{id}', [WishlistController::class, 'show']);
 Route::delete('/wishlists/{id}', [WishlistController::class, 'destroy']);
 // Test route
+
+// new
 Route::get('test', function () {
     return 'Route is working!';
 });

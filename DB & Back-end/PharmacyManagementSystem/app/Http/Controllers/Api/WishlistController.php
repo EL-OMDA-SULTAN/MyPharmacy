@@ -20,17 +20,6 @@ class WishlistController extends Controller
 
     public function store(Request $request, $user_id, $product_id)
     {
-        /* $validator = Validator::make($request->all(), [
-            'Customer_ID' => 'required|integer',
-            'Product_ID' => 'required|integer',
-        ]);
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Validation errors',
-                'errors' => $validator->errors()
-            ], 422);
-        } */
         $wishlist = new Wishlists();
         $wishlist->Customer_ID = $user_id;
         $wishlist->Product_ID = $product_id;

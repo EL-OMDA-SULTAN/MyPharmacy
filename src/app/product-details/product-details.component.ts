@@ -11,34 +11,48 @@ import { AuthService } from '../auth.service';
 export class ProductDetailsComponent implements OnInit {
   productDetails: any = [];
   categoryName:any="";
-  productID: any = 0;
-  customerId: any = 0;
-  constructor(private authService: AuthService, private route: Router, private router: ActivatedRoute) {
-
-  }
-
+  // productID: any;
+  pharmacyName: any = "";
+  customerId:number=0;
+  productId:number=0;
+  constructor(private authService: AuthService, private route: Router, private router: ActivatedRoute) { }
   ngOnInit(): void {
+    // if(this.authService.isLoggedIn()){
+    //   this.route.navigate(['/login']);
+    // }
+    const user = JSON.parse(sessionStorage.getItem('user') || '{}');
+    this.customerId = user.User_ID;
     const productId = this.router.snapshot.paramMap.get('id');
-    this.productID = productId;
-    const customerId = JSON.parse(sessionStorage.getItem('userData') || '{}');
-    this.customerId = customerId.Customer_ID;
-
-    console.log(this.customerId, this.productID);
-    
+    this.productId = Number(productId);
+    // console.log(this.productId);
+    // console.log(this.customerId);
     this.authService.getProduct(productId).subscribe ((data: any)=> {
       this.productDetails = data;
       // console.log(this.productDetails.Category_Id);
       const categoryID = this.productDetails.Category_Id;
       this.authService.getCategoryById(categoryID).subscribe((data: any) => {
         this.categoryName = data.Category_Name;
+        // console.log(this.categoryName);
       })
-    });
+      // console.log(productId);
+      // console.log(this.productDetails);
+        // console.log(this.categoryName);
+      });
+      const pharmacyID = this.productDetails.Pharmacy_ID;
+      this.authService.getPharmacyById(pharmacyID).subscribe((data: any) => {
+        this.pharmacyName = data.Pharmacy_Name;
+        // console.log(this.pharmacyName);
+      });
+    // console.log(this.productId,this.customerId);
   }
   addToCart(productID: number) {
     // this.authService.addToCart(productID);
   }
-  addToWishlist() {
-    this.authService.addWishlist( this.customerId, this.productID);
+    // this.authService.addToWishlist(productID);
+  addToWishlist(){
+    this.authService.addWishlist(this.customerId,this.productId).subscribe((data: any) => {
+      console.log(data);
+    })
       this.route.navigate(['/customer-wishlist']);
   }
 }
