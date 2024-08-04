@@ -18,8 +18,7 @@ export class AppComponent implements OnInit {
         // Hide navbar and footer on login, register, and forgot-password pages
         this.showNavbarAndFooter = !this.router.url.includes('/login') &&
                                    !this.router.url.includes('/register') &&
-                                   !this.router.url.includes('/forgot-password')&&
-                                   !this.router.url.includes('/super-admin-dashboard');
+                                   !this.router.url.includes('/forgot-password')
       }
     });
   }

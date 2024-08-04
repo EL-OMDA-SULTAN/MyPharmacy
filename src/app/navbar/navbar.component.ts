@@ -30,9 +30,9 @@ export class NavbarComponent {
       this.categories = data;
     });
 
-    this.authService.getPharmacy().subscribe((data: any) => {
-      this.pharmacies = data;
-    });
+    // this.authService.getPharmacy().subscribe((data: any) => {
+    //   this.pharmacies = data;
+    // });
 
     this.authService.getProducts().subscribe((data) => {
       this.products = data;

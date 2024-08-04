@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'about', component: AboutComponent },
   { path: 'super-admin-dashboard', component: SuperAdminDashboardComponent, canActivate: [AdminGuard] },
-  { path: 'show-pharmacies', component: ShowPharmaciesComponent },
+  { path: 'show-pharmacies', component: ShowPharmaciesComponent,canActivate: [AdminGuard] },
   { path: 'categories', component: CategoriesComponent },
   { path: 'sales', component: SalesComponent },
   { path: 'add-category', component: AddCategoryComponent, canActivate: [AdminGuard] },
