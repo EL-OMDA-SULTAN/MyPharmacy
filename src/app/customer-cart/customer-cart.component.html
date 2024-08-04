@@ -3,13 +3,13 @@
     <!-- Cart Items -->
     <div class="col-lg-8 cart-container">
       <h2 class="mb-4">Shopping Cart</h2>
-      <div class="cart-item row mb-3" *ngFor="let item of cartItems">
+      <div class="cart-item row mb-3 justify-content-around align-items-center" *ngFor="let item of cartItems">
         <div class="col-3">
-          <img [src]="item.image" alt="Product Image" class="img-fluid rounded">
+          <img [src]="'http://127.0.0.1:8000/storage/'+item.image" alt="Product Image" class="img-fluid rounded">
         </div>
-        <div class="col-5">
+        <div class="col-3">
           <h4>{{ item.Product_Name }}</h4>
-          <p>{{ item.Description }}</p>
+          <!-- <p>{{ item.Description }}</p> -->
           <div class="quantity-controls d-flex align-items-center">
             <button class="btn btn-outline-secondary btn-sm" (click)="decreaseQuantity(item)">-</button>
             <input type="text" class="form-control text-center mx-2" [value]="item.quantity" readonly>

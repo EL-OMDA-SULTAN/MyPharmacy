@@ -19,7 +19,7 @@ h2 {
   margin-bottom: 20px;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
-  margin-bottom: 100px !important;
+  /* margin-bottom: 100px !important; */
 }
 
 .cart-item {
@@ -74,5 +74,11 @@ h2 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.cart-item img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
 
