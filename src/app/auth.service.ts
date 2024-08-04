@@ -63,7 +63,7 @@ export class AuthService {
   }
 
   getCategory(id:any): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/category`,id);
+    return this.http.get<any>(`${this.apiUrl}/category/${id}`);
   }
 
   addCategory(data:any): Observable<any> {
@@ -117,11 +117,11 @@ deleteCategory(categoryId: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/wishlists`);
   }
 
-  getWishlistById(wishlistId: number): Observable<any> {
+  getWishlistById(wishlistId: any): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/wishlists/${wishlistId}`);
   }
 
-  addWishlist(userId: number, productId: number): Observable<any> {
+  addWishlist(userId: any, productId: number): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/wishlists/${userId}/${productId}`, {});
   }
 

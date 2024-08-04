@@ -50,6 +50,7 @@ export class ProductDetailsComponent implements OnInit {
     const userData = JSON.parse(sessionStorage.getItem('userData') || '{}');
     console.log('User Data:', userData);
     this.customerId = userData.Customer_ID;
+    console.log(this.customerId);
   }
   
   
@@ -83,6 +84,7 @@ export class ProductDetailsComponent implements OnInit {
   
   
   addToWishlist() {
+    // console.log(this.customerId, this.productId);
     if (!this.customerId || !this.productId) {
       console.error('Customer ID or Product ID is missing');
       return;

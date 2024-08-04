@@ -15,8 +15,8 @@ export class CustomerWishlistComponent {
   constructor( private router: Router,private authService: AuthService,private route:ActivatedRoute) {}
 
   ngOnInit(): void {
-    const storedCustomerID = JSON.parse(sessionStorage.getItem('user') || '{}');
-    this.customerID = storedCustomerID.User_ID;
+    const storedCustomerID = JSON.parse(sessionStorage.getItem('userData') || '{}');
+    this.customerID = storedCustomerID.Customer_ID;
     console.log(this.customerID);
     this.authService.getWishlistById(this.customerID).subscribe((data: any) => {
       this.wishlistItems = data;
